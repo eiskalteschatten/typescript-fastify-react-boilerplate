@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 
 import { useAppSelector } from 'store/hooks';
-import { Props as SidebarItemProps } from 'components/elements/SidebarItem';
+import { Props as SidebarItemProps } from 'components/SidebarItem';
 
 import SidebarColumn from './SidebarColumn';
 import MobileSidebar from './MobileSidebar';

@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import ThreeColumnLayout from 'layouts/Main/sublayouts/ThreeColumn';
-import { Props as SidebarItemProps } from 'components/elements/SidebarItem';
+import { Props as SidebarItemProps } from 'components/SidebarItem';
 
 const ListsRouter: React.FC = () => {
   const { t } = useTranslation(['lists']);

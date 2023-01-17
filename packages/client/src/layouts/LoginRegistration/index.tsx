@@ -5,7 +5,7 @@ import clsx from 'clsx';
 
 import { useAppSelector } from 'store/hooks';
 import { ReactComponent as Logo } from 'assets/images/dynamic-icon-monotone.svg';
-import Card from 'components/elements/Card';
+import Card from 'components/Card';
 
 import styles from './styles.module.scss';
 

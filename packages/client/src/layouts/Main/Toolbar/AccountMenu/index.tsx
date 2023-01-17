@@ -3,11 +3,11 @@ import { useTranslation } from 'react-i18next';
 import { usePopper } from 'react-popper';
 import { Link } from 'react-router-dom';
 
-import PopperWrapper from 'components/elements/PopperWrapper';
-import PopupBase from 'components/elements/PopupBase';
-import Menu from 'components/elements/Menu';
-import MenuItem from 'components/elements/MenuItem';
-import Button from 'components/elements/Button';
+import PopperWrapper from 'components/PopperWrapper';
+import PopupBase from 'components/PopupBase';
+import Menu from 'components/Menu';
+import MenuItem from 'components/MenuItem';
+import Button from 'components/Button';
 import { useAppDispatch } from 'store/hooks';
 import { logout } from 'store/entities/account';
 

@@ -8,8 +8,8 @@ import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { clearAccountError, register } from 'store/entities/account';
 import setPageTitle from 'lib/setPageTitle';
 import LoginRegistration from 'layouts/LoginRegistration';
-import Button from 'components/elements/Button';
-import Input from 'components/elements/Input';
+import Button from 'components/Button';
+import Input from 'components/Input';
 
 const Register: React.FC = () => {
   const { t } = useTranslation(['account']);

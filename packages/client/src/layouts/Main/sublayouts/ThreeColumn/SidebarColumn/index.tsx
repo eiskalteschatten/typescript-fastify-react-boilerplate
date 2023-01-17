@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Sidebar from 'components/elements/Sidebar';
-import SidebarItem, { Props as SidebarItemProps } from 'components/elements/SidebarItem';
+import Sidebar from 'components/Sidebar';
+import SidebarItem, { Props as SidebarItemProps } from 'components/SidebarItem';
 
 interface Props {
   sidebarItems: SidebarItemProps[];

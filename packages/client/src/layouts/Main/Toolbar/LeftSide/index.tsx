@@ -4,7 +4,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { setMobileSidebarOpen } from 'store/entities/ui';
 import { usePathnameWithoutBookId } from 'lib/urlHelper';
-import Button from 'components/elements/Button';
+import Button from 'components/Button';
 
 import { ReactComponent as Logo } from 'assets/images/toolbar-icon.svg';
 

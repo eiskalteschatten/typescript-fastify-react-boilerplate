@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import MainLayoutSuspense from 'components/elements/MainLayoutSuspense';
+import MainLayoutSuspense from 'components/MainLayoutSuspense';
 
 const Dashboard = React.lazy(() => import('../pages/Dashboard'));
 const ListsRouter = React.lazy(() => import('./Lists'));

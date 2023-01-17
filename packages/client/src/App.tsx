@@ -1,13 +1,13 @@
 import React, { useLayoutEffect } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
+import Router from 'router';
 import { useAppDispatch } from 'store/hooks';
 import { setWindowWidth, setPrefersDarkMode } from 'store/entities/ui';
-import GlobalErrorBoundary from 'components/errors/GlobalErrorBoundary';
-import Router from 'router';
-import GlobalInfo from 'components/elements/GlobalInfo';
-import GlobalError from 'components/elements/GlobalError';
-import GlobalLoader from 'components/elements/GlobalLoader';
+import GlobalErrorBoundary from 'components/GlobalErrorBoundary';
+import GlobalInfo from 'components/GlobalInfo';
+import GlobalError from 'components/GlobalError';
+import GlobalLoader from 'components/GlobalLoader';
 
 const App: React.FC = () => {
   const dispatch = useAppDispatch();
