@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import BasicLayout from 'layouts/Main/sublayouts/Basic';
+import MainLayout from 'layouts/Main';
 import setPageTitle from 'lib/setPageTitle';
 
 const FourOhFour: React.FC = () => {
@@ -12,9 +12,9 @@ const FourOhFour: React.FC = () => {
   }, []);
 
   return (
-    <BasicLayout>
+    <MainLayout>
       {t('errors:pageNotFound')}
-    </BasicLayout>
+    </MainLayout>
   );
 };
 

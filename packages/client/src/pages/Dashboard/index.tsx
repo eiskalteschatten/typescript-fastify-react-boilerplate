@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import BasicLayout from 'layouts/Main/sublayouts/Basic';
+import MainLayout from 'layouts/Main';
 import setPageTitle from 'lib/setPageTitle';
 
 const Dashboard: React.FC = () => {
@@ -12,9 +12,9 @@ const Dashboard: React.FC = () => {
   }, []);
 
   return (
-    <BasicLayout>
+    <MainLayout>
       Dashboard
-    </BasicLayout>
+    </MainLayout>
   );
 };
 
