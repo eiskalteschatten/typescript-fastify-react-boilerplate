@@ -2,7 +2,7 @@ import React, { Suspense } from 'react';
 
 import { useAppSelector } from 'store/hooks';
 
-import * as constants from '../../../constants';
+import * as constants from '../../constants';
 import Toolbar from './components/Toolbar';
 
 import styles from './styles.module.scss';

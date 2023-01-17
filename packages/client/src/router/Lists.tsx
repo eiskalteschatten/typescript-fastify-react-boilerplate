@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-import ThreeColumnLayout from 'components/layouts/Main/sublayouts/ThreeColumn';
+import ThreeColumnLayout from 'layouts/Main/sublayouts/ThreeColumn';
 import { Props as SidebarItemProps } from 'components/elements/SidebarItem';
 
 const ListsRouter: React.FC = () => {

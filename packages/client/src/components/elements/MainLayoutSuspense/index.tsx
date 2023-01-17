@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 
 import SuspenseSpinner from 'components/elements/SuspenseSpinner';
-import MainLayout from 'components/layouts/Main';
+import MainLayout from 'layouts/Main';
 
 interface Props {
   children: React.ReactNode;

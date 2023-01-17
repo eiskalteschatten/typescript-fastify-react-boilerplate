@@ -6,7 +6,7 @@ import { Props as SidebarItemProps } from 'components/elements/SidebarItem';
 import SidebarColumn from './components/SidebarColumn';
 import MobileSidebar from './components/MobileSidebar';
 
-import * as constants from '../../../../../constants';
+import * as constants from '../../../../constants';
 
 import styles from './styles.module.scss';
 

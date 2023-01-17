@@ -8,7 +8,7 @@ import Button from 'components/elements/Button';
 
 import { ReactComponent as Logo } from 'assets/images/toolbar-icon.svg';
 
-import * as constants from '../../../../../../../constants';
+import * as constants from '../../../../../../constants';
 
 import styles from './styles.module.scss';
 import toolbarStyles from '../../styles.module.scss';

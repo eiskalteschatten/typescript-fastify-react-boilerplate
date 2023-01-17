@@ -6,7 +6,7 @@ import * as Yup from 'yup';
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { clearAccountError, login } from 'store/entities/account';
 import setPageTitle from 'lib/setPageTitle';
-import LoginRegistration from 'components/layouts/LoginRegistration';
+import LoginRegistration from 'layouts/LoginRegistration';
 import Input from 'components/elements/Input';
 import Button from 'components/elements/Button';
 

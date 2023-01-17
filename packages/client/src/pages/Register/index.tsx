@@ -7,7 +7,7 @@ import { passwordRegex } from '@tfrb/shared/dist/lib/accounts';
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { clearAccountError, register } from 'store/entities/account';
 import setPageTitle from 'lib/setPageTitle';
-import LoginRegistration from 'components/layouts/LoginRegistration';
+import LoginRegistration from 'layouts/LoginRegistration';
 import Button from 'components/elements/Button';
 import Input from 'components/elements/Input';
 

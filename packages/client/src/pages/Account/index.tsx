@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import BasicLayout from 'components/layouts/Main/sublayouts/Basic';
+import BasicLayout from 'layouts/Main/sublayouts/Basic';
 import setPageTitle from 'lib/setPageTitle';
 
 const Account: React.FC = () => {
