@@ -2,9 +2,10 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import MainLayout from 'layouts/Main';
+import MainLayoutSuspense from 'components/MainLayoutSuspense';
 
-import Homepage from './pages/Homepage';
-import NotFound from './pages/NotFound';
+const Homepage = React.lazy(() => import('./pages/Homepage'));
+const NotFound = React.lazy(() => import('./pages/NotFound'));
 
 const RootModule: React.FC = () => {
   // The RootModule is responsible for everything that happens at the root levels and all of its content.
@@ -14,8 +15,17 @@ const RootModule: React.FC = () => {
   return (
     <MainLayout>
       <Routes>
-        <Route path='/' element={<Homepage />} />
-        <Route path='*' element={<NotFound />} />
+        <Route path='/' element={
+          <MainLayoutSuspense>
+            <Homepage />
+          </MainLayoutSuspense>
+        } />
+
+        <Route path='*' element={
+          <MainLayoutSuspense>
+            <NotFound />
+          </MainLayoutSuspense>
+        } />
       </Routes>
     </MainLayout>
   );
