@@ -2,7 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import MainLayout from 'layouts/Main';
-import MainLayoutSuspense from 'components/MainLayoutSuspense';
+import PageSuspense from 'components/PageSuspense';
 
 const Homepage = React.lazy(() => import('./pages/Homepage'));
 const NotFound = React.lazy(() => import('./pages/NotFound'));
@@ -16,15 +16,15 @@ const RootModule: React.FC = () => {
     <MainLayout>
       <Routes>
         <Route path='/' element={
-          <MainLayoutSuspense>
+          <PageSuspense>
             <Homepage />
-          </MainLayoutSuspense>
+          </PageSuspense>
         } />
 
         <Route path='*' element={
-          <MainLayoutSuspense>
+          <PageSuspense>
             <NotFound />
-          </MainLayoutSuspense>
+          </PageSuspense>
         } />
       </Routes>
     </MainLayout>
