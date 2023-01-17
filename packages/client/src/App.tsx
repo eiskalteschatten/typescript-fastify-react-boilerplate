@@ -1,7 +1,7 @@
 import React, { useLayoutEffect } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
-import { useAppDispatch } from 'store/hooks';
+import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { setWindowWidth, setPrefersDarkMode } from 'store/entities/ui';
 
 import AuthModule from 'modules/AuthModule';
@@ -14,6 +14,8 @@ import GlobalLoader from 'components/GlobalLoader';
 
 const App: React.FC = () => {
   const dispatch = useAppDispatch();
+  const { user, accessToken, refreshToken } = useAppSelector(state => state.account);
+  const userIsLoggedin = user && accessToken && refreshToken;
 
   useLayoutEffect(() => {
     dispatch(setPrefersDarkMode(window.matchMedia('(prefers-color-scheme: dark)').matches));
@@ -34,8 +36,16 @@ const App: React.FC = () => {
     <GlobalErrorBoundary>
       <BrowserRouter>
         <Routes>
-          <Route path='*' element={<AuthModule />} />
-          <Route path='*' element={<RootModule />} />
+          {!userIsLoggedin ? (
+            <Route path='*' element={<AuthModule />} />
+          ) : (
+            <>
+              <Route path='/login' element={<Navigate replace to={'/'} />} />
+              <Route path='/register' element={<Navigate replace to={'/'} />} />
+
+              <Route path='*' element={<RootModule />} />
+            </>
+          )}
         </Routes>
       </BrowserRouter>
 
