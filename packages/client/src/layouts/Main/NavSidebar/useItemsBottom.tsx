@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
-import { Props as NavItemProp } from './components/NavItem';
+import { Props as NavItemProp } from './NavItem';
 
 const useItemsButtom = (): NavItemProp[] => {
   const { t } = useTranslation(['nav']);

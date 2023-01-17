@@ -1,8 +1,8 @@
 import React from 'react';
 
-import SearchBox from './components/SearchBox';
-import LeftSide from './components/LeftSide';
-import AccountMenu from './components/AccountMenu';
+import SearchBox from './SearchBox';
+import LeftSide from './LeftSide';
+import AccountMenu from './AccountMenu';
 
 import styles from './styles.module.scss';
 

@@ -3,7 +3,7 @@ import React, { Suspense } from 'react';
 import { useAppSelector } from 'store/hooks';
 
 import * as constants from '../../constants';
-import Toolbar from './components/Toolbar';
+import Toolbar from './Toolbar';
 
 import styles from './styles.module.scss';
 
@@ -11,7 +11,7 @@ interface Props {
   children: React.ReactNode;
 }
 
-const NavSidebar = React.lazy(() => import('./components/NavSidebar'));
+const NavSidebar = React.lazy(() => import('./NavSidebar'));
 
 const MainLayout: React.FC<Props> = ({ children }) => {
   const { windowWidth } = useAppSelector(state => state.ui);
