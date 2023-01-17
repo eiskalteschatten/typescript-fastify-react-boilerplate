@@ -5,6 +5,7 @@ import { useAppDispatch } from 'store/hooks';
 import { setWindowWidth, setPrefersDarkMode } from 'store/entities/ui';
 
 import AuthModule from 'modules/AuthModule';
+import RootModule from 'modules/RootModule';
 
 import GlobalErrorBoundary from 'components/GlobalErrorBoundary';
 import GlobalInfo from 'components/GlobalInfo';
@@ -34,7 +35,7 @@ const App: React.FC = () => {
       <BrowserRouter>
         <Routes>
           <Route path='*' element={<AuthModule />} />
-          {/* <Route path='*' element={<RootModule />} /> */}
+          <Route path='*' element={<RootModule />} />
         </Routes>
       </BrowserRouter>
 

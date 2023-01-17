@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { clearAccountError, login } from 'store/entities/account';
-import setPageTitle from 'lib/setPageTitle';
+import usePageTitle from 'lib/usePageTitle';
 import Input from 'components/Input';
 import Button from 'components/Button';
 
@@ -14,8 +14,9 @@ const Login: React.FC = () => {
   const dispatch = useAppDispatch();
   const { isLoading } = useAppSelector(state => state.account);
 
+  usePageTitle(t('account:login'));
+
   useEffect(() => {
-    setPageTitle(t('account:login'));
     dispatch(clearAccountError());
   }, []);
 

@@ -6,7 +6,7 @@ import { passwordRegex } from '@tfrb/shared/dist/lib/accounts';
 
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { clearAccountError, register } from 'store/entities/account';
-import setPageTitle from 'lib/setPageTitle';
+import usePageTitle from 'lib/usePageTitle';
 import Button from 'components/Button';
 import Input from 'components/Input';
 
@@ -15,8 +15,9 @@ const Register: React.FC = () => {
   const dispatch = useAppDispatch();
   const { isLoading } = useAppSelector(state => state.account);
 
+  usePageTitle(t('account:register'));
+
   useEffect(() => {
-    setPageTitle(t('account:register'));
     dispatch(clearAccountError());
   }, []);
 
