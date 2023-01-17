@@ -1,13 +1,13 @@
 import React, { useMemo } from 'react';
 import { Routes, Navigate, Route } from 'react-router-dom';
 
+import LoginRegistration from 'layouts/LoginRegistration';
 import { useAppSelector } from 'store/hooks';
 
-import Login from '../pages/Login';
-import Register from '../pages/Register';
-import MainRouter from './Main';
+import Login from './pages/Login';
+import Register from './pages/Register';
 
-const Router: React.FC = () => {
+const AuthModule: React.FC = () => {
   const { user, accessToken, refreshToken } = useAppSelector(state => state.account);
   const userIsLoggedin = user && accessToken && refreshToken;
 
@@ -27,18 +27,20 @@ const Router: React.FC = () => {
     {
       path: '*',
       element: userIsLoggedin
-        ? <MainRouter />
+        ? <Navigate replace to={'/'} />
         : <Navigate replace to={'/login'} />,
     },
   ], [userIsLoggedin]);
 
   return (
-    <Routes>
-      {routes.map(({ path, element }) => (
-        <Route path={path} element={element} key={path} />
-      ))}
-    </Routes>
+    <LoginRegistration>
+      <Routes>
+        {routes.map(({ path, element }) => (
+          <Route path={path} element={element} key={path} />
+        ))}
+      </Routes>
+    </LoginRegistration>
   );
 };
 
-export default Router;
+export default AuthModule;
