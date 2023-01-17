@@ -1,11 +1,12 @@
 import React, { useMemo } from 'react';
-import { constants } from '@alexseifert/frontend-library';
 
 import { useAppSelector } from 'store/hooks';
 import { Props as SidebarItemProps } from 'components/elements/SidebarItem';
 
 import SidebarColumn from './components/SidebarColumn';
 import MobileSidebar from './components/MobileSidebar';
+
+import * as constants from '../../../../../constants';
 
 import styles from './styles.module.scss';
 

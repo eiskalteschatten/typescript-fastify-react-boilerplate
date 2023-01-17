@@ -1,6 +1,6 @@
 import React from 'react';
-import { Input } from '@alexseifert/frontend-library';
 
+import Input from 'components/elements/Input';
 import { ReactComponent as SearchIcon } from 'assets/images/search.svg';
 
 import styles from './styles.module.scss';

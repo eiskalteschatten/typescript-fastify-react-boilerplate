@@ -1,11 +1,13 @@
 import React, { useLayoutEffect } from 'react';
-import { FLWrapper } from '@alexseifert/frontend-library';
 import { BrowserRouter } from 'react-router-dom';
 
 import { useAppDispatch } from 'store/hooks';
 import { setWindowWidth, setPrefersDarkMode } from 'store/entities/ui';
 import GlobalErrorBoundary from 'components/errors/GlobalErrorBoundary';
 import Router from 'router';
+import GlobalInfo from 'components/elements/GlobalInfo';
+import GlobalError from 'components/elements/GlobalError';
+import GlobalLoader from 'components/elements/GlobalLoader';
 
 const App: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -27,11 +29,13 @@ const App: React.FC = () => {
 
   return (
     <GlobalErrorBoundary>
-      <FLWrapper>
-        <BrowserRouter>
-          <Router />
-        </BrowserRouter>
-      </FLWrapper>
+      <BrowserRouter>
+        <Router />
+      </BrowserRouter>
+
+      <GlobalInfo />
+      <GlobalError />
+      <GlobalLoader />
     </GlobalErrorBoundary>
   );
 };

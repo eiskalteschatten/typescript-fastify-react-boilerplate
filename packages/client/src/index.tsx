@@ -2,10 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 
-import '@alexseifert/frontend-library/styles/reboot.scss';
-import '@alexseifert/frontend-library/styles/globals.scss';
-import '@alexseifert/frontend-library/styles/fonts/MaterialIconsOutlined.scss';
-
 import store from './store';
 import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
@@ -13,6 +9,7 @@ import reportWebVitals from './reportWebVitals';
 
 import './i18n';
 
+import './styles/reboot.scss';
 import './styles/globals.scss';
 
 const root = ReactDOM.createRoot(

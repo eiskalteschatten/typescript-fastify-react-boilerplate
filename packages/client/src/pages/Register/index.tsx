@@ -3,12 +3,13 @@ import { useTranslation } from 'react-i18next';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { passwordRegex } from '@tfrb/shared/dist/lib/accounts';
-import { Input, Button } from '@alexseifert/frontend-library';
 
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { clearAccountError, register } from 'store/entities/account';
 import setPageTitle from 'lib/setPageTitle';
 import LoginRegistration from 'components/layouts/LoginRegistration';
+import Button from 'components/elements/Button';
+import Input from 'components/elements/Input';
 
 const Register: React.FC = () => {
   const { t } = useTranslation(['account']);

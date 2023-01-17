@@ -1,5 +1,6 @@
 import React from 'react';
-import { Spinner } from '@alexseifert/frontend-library';
+
+import Spinner from '../Spinner';
 
 import styles from './styles.module.scss';
 

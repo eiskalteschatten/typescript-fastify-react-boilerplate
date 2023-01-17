@@ -1,10 +1,9 @@
 import React, { Suspense } from 'react';
-import { constants } from '@alexseifert/frontend-library';
 
 import { useAppSelector } from 'store/hooks';
 
+import * as constants from '../../../constants';
 import Toolbar from './components/Toolbar';
-import GeneralLoader from './components/GeneralLoader';
 
 import styles from './styles.module.scss';
 
@@ -19,7 +18,6 @@ const MainLayout: React.FC<Props> = ({ children }) => {
 
   return (
     <div className={styles.layout}>
-      <GeneralLoader />
       <Toolbar />
 
       <div className={styles.columnLayout}>

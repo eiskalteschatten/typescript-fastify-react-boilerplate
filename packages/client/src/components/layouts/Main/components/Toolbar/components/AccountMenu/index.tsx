@@ -2,12 +2,12 @@ import React, { useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { usePopper } from 'react-popper';
 import { Link } from 'react-router-dom';
-import { Button } from '@alexseifert/frontend-library';
 
 import PopperWrapper from 'components/elements/PopperWrapper';
 import PopupBase from 'components/elements/PopupBase';
 import Menu from 'components/elements/Menu';
 import MenuItem from 'components/elements/MenuItem';
+import Button from 'components/elements/Button';
 import { useAppDispatch } from 'store/hooks';
 import { logout } from 'store/entities/account';
 

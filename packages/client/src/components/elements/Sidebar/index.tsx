@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef, CSSProperties } from 'react';
-import { constants } from '@alexseifert/frontend-library';
 
 import { useAppSelector } from 'store/hooks';
 import { setSidebarWidth } from 'store/entities/ui';
 
+import * as constants from '../../../constants';
 import ColumnDragger from '../ColumnDragger';
 
 import styles from './styles.module.scss';

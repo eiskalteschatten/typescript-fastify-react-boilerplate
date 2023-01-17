@@ -2,12 +2,13 @@ import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { Input, Button } from '@alexseifert/frontend-library';
 
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { clearAccountError, login } from 'store/entities/account';
 import setPageTitle from 'lib/setPageTitle';
 import LoginRegistration from 'components/layouts/LoginRegistration';
+import Input from 'components/elements/Input';
+import Button from 'components/elements/Button';
 
 const Login: React.FC = () => {
   const { t } = useTranslation(['account']);

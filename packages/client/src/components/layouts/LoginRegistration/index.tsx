@@ -2,10 +2,10 @@ import React from 'react';
 import { Link, useMatch } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
-import { Card } from '@alexseifert/frontend-library';
 
 import { useAppSelector } from 'store/hooks';
 import { ReactComponent as Logo } from 'assets/images/dynamic-icon-monotone.svg';
+import Card from 'components/elements/Card';
 
 import styles from './styles.module.scss';
 

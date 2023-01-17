@@ -1,6 +1,7 @@
 import React, { HTMLAttributes } from 'react';
 import clsx from 'clsx';
-import { ButtonBase } from '@alexseifert/frontend-library';
+
+import ButtonBase from '../ButtonBase';
 
 import styles from './styles.module.scss';
 

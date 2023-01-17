@@ -1,12 +1,14 @@
 import React from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { Button, constants } from '@alexseifert/frontend-library';
 
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { setMobileSidebarOpen } from 'store/entities/ui';
 import { usePathnameWithoutBookId } from 'lib/urlHelper';
+import Button from 'components/elements/Button';
 
 import { ReactComponent as Logo } from 'assets/images/toolbar-icon.svg';
+
+import * as constants from '../../../../../../../constants';
 
 import styles from './styles.module.scss';
 import toolbarStyles from '../../styles.module.scss';

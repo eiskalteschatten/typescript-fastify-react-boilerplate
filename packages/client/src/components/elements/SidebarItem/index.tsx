@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link, useMatch, useResolvedPath } from 'react-router-dom';
 import clsx from 'clsx';
-import { constants } from '@alexseifert/frontend-library';
 
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { setMobileSidebarOpen } from 'store/entities/ui';
+import * as constants from '../../../constants';
 
 import styles from './styles.module.scss';
 
