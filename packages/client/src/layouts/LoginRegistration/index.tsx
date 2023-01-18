@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
 
 import { useAppSelector } from 'store/hooks';
-import { ReactComponent as Logo } from 'assets/images/dynamic-icon-monotone.svg';
+import LogoDarkLight from 'components/LogoDarkLight';
 import Card from 'components/Card';
 
 import styles from './styles.module.scss';
@@ -24,7 +24,7 @@ const LoginRegistration: React.FC<Props> = ({ children }) => {
   return (
     <div className={styles.layout}>
       <Card className={styles.form}>
-        <Logo width={logoSize} height={logoSize} />
+        <LogoDarkLight width={logoSize} height={logoSize} />
 
         <div className={styles.tabs}>
           <Link to='/login' className={clsx(styles.tab, {

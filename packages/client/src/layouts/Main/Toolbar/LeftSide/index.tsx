@@ -4,9 +4,8 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { setMobileSidebarOpen } from 'store/entities/ui';
 import { usePathnameWithoutBookId } from 'lib/urlHelper';
+import LogoDarkLight from 'components/LogoDarkLight';
 import Button from 'components/Button';
-
-import { ReactComponent as Logo } from 'assets/images/toolbar-icon.svg';
 
 import * as constants from '../../../../constants';
 
@@ -29,7 +28,7 @@ const LeftSide: React.FC = () => {
           to='/'
           className={styles.logo}
         >
-          <Logo width={logoSize} height={logoSize} />
+          <LogoDarkLight width={logoSize} height={logoSize} />
           <span>Typescript Fastify React Boilerplate</span>
         </Link>
       ) : (

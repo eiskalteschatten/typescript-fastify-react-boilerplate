@@ -2,7 +2,7 @@ import React, { Component, ErrorInfo, ReactNode } from 'react';
 import { t } from 'i18next';
 import { Trans } from 'react-i18next';
 
-import { ReactComponent as Logo } from 'assets/images/dynamic-icon-monotone.svg';
+import LogoDarkLight from 'components/LogoDarkLight';
 
 import styles from './styles.module.scss';
 
@@ -36,7 +36,7 @@ class GlobalErrorBoundary extends Component<Props, State> {
     if (this.state.hasError) {
       return (
         <div className={styles.errorPage}>
-          <Logo className={styles.logo} />
+          <LogoDarkLight className={styles.logo} />
 
           <div>
             <h1>{t<string>('errors:oopsThereWasAnError')}</h1>
