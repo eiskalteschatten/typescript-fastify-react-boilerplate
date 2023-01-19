@@ -62,7 +62,7 @@ instance.interceptors.response.use(response => {
     const refreshToken = getState().account.refreshToken || '';
 
     try {
-      const { data: { accessToken } } = await axios.post('/api/auth/refresh-access-token', undefined, {
+      const { data: { accessToken } } = await axios.post<{ accessToken: string }>('/api/auth/refresh-access-token', undefined, {
         headers: {
           Authorization: `Bearer ${refreshToken}`,
         },
