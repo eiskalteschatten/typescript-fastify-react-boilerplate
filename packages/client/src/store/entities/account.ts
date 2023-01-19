@@ -38,10 +38,9 @@ export const login = createAsyncThunk(
 export const logout = createAsyncThunk(
   'account/logout',
   async (_, thunkAPI) => {
-    const { data } = await customAxios.post<UserLoginReply>('/api/auth/logout');
+    await customAxios.post<UserLoginReply>('/api/auth/logout');
     // TODO
     // thunkAPI.dispatch(removeAllData());
-    return data;
   }
 );
 
