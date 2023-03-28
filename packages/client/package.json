@@ -19,11 +19,12 @@
   "dependencies": {
     "@popperjs/core": "^2.11.6",
     "@reduxjs/toolkit": "^1.8.3",
-    "@testing-library/react": "^13.3.0",
+    "@testing-library/react": "^14.0.0",
     "@tfrb/shared": "^0.1.0",
     "axios": "^1.1.0",
     "clsx": "^1.2.1",
     "formik": "^2.2.9",
+    "pino-pretty": "^10.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-i18next": "^12.1.4",
@@ -45,7 +46,7 @@
     "workbox-routing": "^6.5.4",
     "workbox-strategies": "^6.5.4",
     "workbox-streams": "^6.5.4",
-    "yup": "^0.32.11"
+    "yup": "^1.0.2"
   },
   "devDependencies": {
     "@types/jest": "^29.0.1",

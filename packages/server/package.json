@@ -23,6 +23,7 @@
     "@fastify/passport": "^2.2.0",
     "@fastify/secure-session": "^6.0.0",
     "@fastify/static": "^6.5.0",
+    "@testing-library/react": "^14.0.0",
     "@tfrb/client": "^0.1.0",
     "@tfrb/shared": "^0.1.0",
     "bcryptjs": "^2.4.3",
@@ -34,11 +35,12 @@
     "pg": "^8.7.3",
     "pg-hstore": "^2.3.4",
     "pino": "^8.5.0",
-    "pino-pretty": "^9.1.0",
+    "pino-pretty": "^10.0.0",
     "redis": "^4.0.6",
     "sequelize": "^6.19.0",
     "sequelize-migration-wrapper": "^1.0.1",
-    "uuid": "^9.0.0"
+    "uuid": "^9.0.0",
+    "yup": "^1.0.2"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
