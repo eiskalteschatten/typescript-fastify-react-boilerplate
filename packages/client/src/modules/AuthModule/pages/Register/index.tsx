@@ -36,7 +36,7 @@ const Register: React.FC = () => {
       password: Yup.string()
         .matches(passwordRegex, t('account:passwordSchemaInvalid'))
         .required('Required!'),
-      confirmPassword: Yup.string().oneOf([Yup.ref('password'), null], 'Passwords must match!'),
+      confirmPassword: Yup.string().oneOf([Yup.ref('password')], 'Passwords must match!'),
     }),
     onSubmit: values => {
       dispatch(register(values));
