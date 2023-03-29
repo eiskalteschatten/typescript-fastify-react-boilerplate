@@ -22,5 +22,8 @@
   "exclude": [
     "dist",
     "node_modules"
-  ]
+  ],
+  "watchOptions": {
+    "excludeDirectories": ["**/node_modules", "dist"]
+  }
 }

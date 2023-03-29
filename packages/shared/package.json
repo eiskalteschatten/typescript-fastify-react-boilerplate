@@ -13,7 +13,8 @@
   "private": true,
   "scripts": {
     "lint": "eslint \"./**/*.{tsx,ts,js,json}\"",
-    "build": "tsc"
+    "build": "tsc",
+    "dev": "tsc --watch"
   },
   "dependencies": {
     "@testing-library/react": "^14.0.0",
