@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navigate, createBrowserRouter } from 'react-router-dom';
 
-import ComponentWithSuspense from 'components/ComponentWithSuspense';
+import ComponentWithSuspense from '@/components/ComponentWithSuspense';
 
 const Homepage = React.lazy(() => import('../pages/Homepage'));
 const NotFound = React.lazy(() => import('../pages/NotFound'));

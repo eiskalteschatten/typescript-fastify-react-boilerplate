@@ -5,12 +5,12 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { UserRegistration } from '@tfrb/shared';
 import { passwordRegex } from '@tfrb/shared/dist/lib/accounts';
 
-import { useAppDispatch, useAppSelector } from 'store/hooks';
-import { clearAccountError, register as registerUser } from 'store/entities/account';
-import usePageTitle from 'lib/usePageTitle';
-import Button from 'components/Button';
-import Input from 'components/Input';
-import LoginRegistration from 'layouts/LoginRegistration';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
+import { clearAccountError, register as registerUser } from '@/store/entities/account';
+import usePageTitle from '@/lib/usePageTitle';
+import Button from '@/components/Button';
+import Input from '@/components/Input';
+import LoginRegistration from '@/layouts/LoginRegistration';
 
 interface FieldValues extends UserRegistration {
   confirmPassword: string;

@@ -1,7 +1,7 @@
 import React, { HTMLAttributes } from 'react';
 
-import WhiteLogo from 'assets/images/icon-monotone-white.svg';
-import BlackLogo from 'assets/images/icon-monotone-black.svg';
+import WhiteLogo from '@/assets/images/icon-monotone-white.svg';
+import BlackLogo from '@/assets/images/icon-monotone-black.svg';
 
 interface Props extends HTMLAttributes<HTMLPictureElement> {
   width?: number;

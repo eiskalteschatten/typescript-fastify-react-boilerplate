@@ -2,8 +2,8 @@ import React from 'react';
 import { Link, useMatch, useResolvedPath } from 'react-router-dom';
 import clsx from 'clsx';
 
-import { useAppDispatch, useAppSelector } from 'store/hooks';
-import { setMobileSidebarOpen } from 'store/entities/ui';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
+import { setMobileSidebarOpen } from '@/store/entities/ui';
 import * as constants from '../../constants';
 
 import styles from './SidebarItem.module.scss';

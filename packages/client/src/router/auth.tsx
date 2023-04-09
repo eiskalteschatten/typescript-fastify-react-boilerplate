@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navigate, createBrowserRouter } from 'react-router-dom';
 
-import ComponentWithSuspense from 'components/ComponentWithSuspense';
+import ComponentWithSuspense from '@/components/ComponentWithSuspense';
 
 const Login = React.lazy(() => import('../pages/Login'));
 const Register = React.lazy(() => import('../pages/Register'));

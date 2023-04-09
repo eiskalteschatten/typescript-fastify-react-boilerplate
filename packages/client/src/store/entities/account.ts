@@ -3,7 +3,7 @@ import { t } from 'i18next';
 import axios from 'axios';
 import type { SerializedUser, UserLoginReply, UserRegistration } from '@tfrb/shared';
 
-import customAxios from 'lib/axios';
+import customAxios from '@/lib/axios';
 
 export interface State {
   user?: SerializedUser;

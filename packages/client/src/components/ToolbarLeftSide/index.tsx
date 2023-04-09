@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 
-import { useAppDispatch, useAppSelector } from 'store/hooks';
-import { setMobileSidebarOpen } from 'store/entities/ui';
-import { usePathnameWithoutBookId } from 'lib/urlHelper';
-import LogoDarkLight from 'components/LogoDarkLight';
-import Button from 'components/Button';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
+import { setMobileSidebarOpen } from '@/store/entities/ui';
+import { usePathnameWithoutBookId } from '@/lib/urlHelper';
+import LogoDarkLight from '@/components/LogoDarkLight';
+import Button from '@/components/Button';
 
 import * as constants from '../../constants';
 
