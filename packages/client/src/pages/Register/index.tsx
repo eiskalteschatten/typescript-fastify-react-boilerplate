@@ -9,6 +9,7 @@ import { clearAccountError, register } from 'store/entities/account';
 import usePageTitle from 'lib/usePageTitle';
 import Button from 'components/Button';
 import Input from 'components/Input';
+import LoginRegistration from 'layouts/LoginRegistration';
 
 const Register: React.FC = () => {
   const { t } = useTranslation(['account']);
@@ -44,74 +45,77 @@ const Register: React.FC = () => {
   });
 
   return (
-    <form onSubmit={formik.handleSubmit}>
-      <Input
-        id='email'
-        name='email'
-        type='email'
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.email}
-        error={formik.touched.email ? formik.errors.email : undefined}
-        label={t('account:emailAddress')}
-        required
-        fullWidth
-      />
+    <LoginRegistration>
 
-      <Input
-        id='firstName'
-        name='firstName'
-        type='text'
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.firstName}
-        error={formik.touched.firstName ? formik.errors.firstName : undefined}
-        label={t('account:firstName')}
-        required
-        fullWidth
-      />
+      <form onSubmit={formik.handleSubmit}>
+        <Input
+          id='email'
+          name='email'
+          type='email'
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.email}
+          error={formik.touched.email ? formik.errors.email : undefined}
+          label={t('account:emailAddress')}
+          required
+          fullWidth
+        />
 
-      <Input
-        id='lastName'
-        name='lastName'
-        type='text'
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.lastName}
-        error={formik.touched.lastName ? formik.errors.lastName : undefined}
-        label={t('account:lastName')}
-        required
-        fullWidth
-      />
+        <Input
+          id='firstName'
+          name='firstName'
+          type='text'
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.firstName}
+          error={formik.touched.firstName ? formik.errors.firstName : undefined}
+          label={t('account:firstName')}
+          required
+          fullWidth
+        />
 
-      <Input
-        id='password'
-        name='password'
-        type='password'
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.password}
-        error={formik.touched.password ? formik.errors.password : undefined}
-        label={t('account:password')}
-        required
-        fullWidth
-      />
+        <Input
+          id='lastName'
+          name='lastName'
+          type='text'
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.lastName}
+          error={formik.touched.lastName ? formik.errors.lastName : undefined}
+          label={t('account:lastName')}
+          required
+          fullWidth
+        />
 
-      <Input
-        id='confirmPassword'
-        name='confirmPassword'
-        type='password'
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.confirmPassword}
-        error={formik.touched.confirmPassword ? formik.errors.confirmPassword : undefined}
-        label={t('account:confirmPassword')}
-        required
-        fullWidth
-      />
+        <Input
+          id='password'
+          name='password'
+          type='password'
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.password}
+          error={formik.touched.password ? formik.errors.password : undefined}
+          label={t('account:password')}
+          required
+          fullWidth
+        />
 
-      <Button type='submit' primary showLoader={isLoading}>{t('account:register')}</Button>
-    </form>
+        <Input
+          id='confirmPassword'
+          name='confirmPassword'
+          type='password'
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.confirmPassword}
+          error={formik.touched.confirmPassword ? formik.errors.confirmPassword : undefined}
+          label={t('account:confirmPassword')}
+          required
+          fullWidth
+        />
+
+        <Button type='submit' primary showLoader={isLoading}>{t('account:register')}</Button>
+      </form>
+    </LoginRegistration>
   );
 };
 

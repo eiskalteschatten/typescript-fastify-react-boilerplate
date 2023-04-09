@@ -8,6 +8,7 @@ import { clearAccountError, login } from 'store/entities/account';
 import usePageTitle from 'lib/usePageTitle';
 import Input from 'components/Input';
 import Button from 'components/Button';
+import LoginRegistration from 'layouts/LoginRegistration';
 
 const Login: React.FC = () => {
   const { t } = useTranslation(['account']);
@@ -35,35 +36,37 @@ const Login: React.FC = () => {
   });
 
   return (
-    <form onSubmit={formik.handleSubmit}>
-      <Input
-        id='email'
-        name='email'
-        type='email'
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.email}
-        error={formik.touched.email ? formik.errors.email : undefined}
-        label={t('account:emailAddress')}
-        required
-        fullWidth
-      />
+    <LoginRegistration>
+      <form onSubmit={formik.handleSubmit}>
+        <Input
+          id='email'
+          name='email'
+          type='email'
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.email}
+          error={formik.touched.email ? formik.errors.email : undefined}
+          label={t('account:emailAddress')}
+          required
+          fullWidth
+        />
 
-      <Input
-        id='password'
-        name='password'
-        type='password'
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.password}
-        error={formik.touched.password ? formik.errors.password : undefined}
-        label={t('account:password')}
-        required
-        fullWidth
-      />
+        <Input
+          id='password'
+          name='password'
+          type='password'
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.password}
+          error={formik.touched.password ? formik.errors.password : undefined}
+          label={t('account:password')}
+          required
+          fullWidth
+        />
 
-      <Button type='submit' primary showLoader={isLoading}>{t('account:logIn')}</Button>
-    </form>
+        <Button type='submit' primary showLoader={isLoading}>{t('account:logIn')}</Button>
+      </form>
+    </LoginRegistration>
   );
 };
 
