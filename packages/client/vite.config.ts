@@ -15,7 +15,7 @@ export default defineConfig({
   },
   build: {
     commonjsOptions: {
-      include: [/\@tfrb\/shared/, /node_modules/],
+      include: ['@tfrb/shared', /node_modules/],
     },
   },
   ...process.env.NODE_ENV === 'development' && {
