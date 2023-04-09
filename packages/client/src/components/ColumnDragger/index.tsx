@@ -3,7 +3,7 @@ import { debounce } from 'lodash';
 
 import { useAppDispatch } from 'store/hooks';
 
-import styles from './styles.module.scss';
+import styles from './ColumnDragger.module.scss';
 
 interface Props {
   columnRef: MutableRefObject<HTMLDivElement | null>;

@@ -1,7 +1,7 @@
 import React, { TextareaHTMLAttributes, useState } from 'react';
 import clsx from 'clsx';
 
-import styles from './styles.module.scss';
+import styles from './TextArea.module.scss';
 
 interface Props extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   inputClassName?: string;

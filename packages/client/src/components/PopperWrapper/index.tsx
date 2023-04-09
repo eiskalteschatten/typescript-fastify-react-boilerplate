@@ -1,7 +1,7 @@
 import React, { forwardRef, HTMLAttributes } from 'react';
 import clsx from 'clsx';
 
-import styles from './styles.module.scss';
+import styles from './PopperWrapper.module.scss';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;

@@ -4,7 +4,7 @@ import { Trans } from 'react-i18next';
 
 import LogoDarkLight from 'components/LogoDarkLight';
 
-import styles from './styles.module.scss';
+import styles from './GlobalErrorBoundary.module.scss';
 
 interface Props {
   children: ReactNode;

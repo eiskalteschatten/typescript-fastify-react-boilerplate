@@ -2,7 +2,7 @@ import React from 'react';
 
 import Spinner from '../Spinner';
 
-import styles from './styles.module.scss';
+import styles from './SuspenseSpinner.module.scss';
 
 const SuspenseSpinner: React.FC = () => {
   return (

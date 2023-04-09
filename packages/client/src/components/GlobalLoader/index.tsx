@@ -5,7 +5,7 @@ import { useAppSelector } from 'store/hooks';
 
 import Toast from '../Toast';
 
-import styles from './styles.module.scss';
+import styles from './GlobalLoader.module.scss';
 
 const GlobalLoader: React.FC = () => {
   const { t } = useTranslation(['common']);

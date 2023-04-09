@@ -1,7 +1,7 @@
 import React, { HTMLAttributes } from 'react';
 import clsx from 'clsx';
 
-import styles from './styles.module.scss';
+import styles from './Menu.module.scss';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;

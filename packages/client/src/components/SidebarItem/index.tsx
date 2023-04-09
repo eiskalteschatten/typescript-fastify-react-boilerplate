@@ -6,7 +6,7 @@ import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { setMobileSidebarOpen } from 'store/entities/ui';
 import * as constants from '../../constants';
 
-import styles from './styles.module.scss';
+import styles from './SidebarItem.module.scss';
 
 export interface Props {
   path: string;

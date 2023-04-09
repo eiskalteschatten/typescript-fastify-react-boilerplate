@@ -4,7 +4,7 @@ import clsx from 'clsx';
 
 import Spinner from '../Spinner';
 
-import styles from './styles.module.scss';
+import styles from './Button.module.scss';
 
 interface InitialProps {
   iconButton?: boolean;

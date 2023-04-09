@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import Button from '../Button';
 import BackgroundCover from '../BackgroundCover';
 
-import styles from './styles.module.scss';
+import styles from './Dialog.module.scss';
 
 interface InitialProps extends HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;

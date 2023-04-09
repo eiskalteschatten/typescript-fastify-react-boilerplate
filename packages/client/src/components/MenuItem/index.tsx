@@ -3,7 +3,7 @@ import clsx from 'clsx';
 
 import ButtonBase from '../ButtonBase';
 
-import styles from './styles.module.scss';
+import styles from './MenuItem.module.scss';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;

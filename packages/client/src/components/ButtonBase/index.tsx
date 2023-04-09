@@ -1,7 +1,7 @@
 import React, { HTMLAttributes, forwardRef } from 'react';
 import clsx from 'clsx';
 
-import styles from './styles.module.scss';
+import styles from './ButtonBase.module.scss';
 
 type Props = HTMLAttributes<HTMLDivElement> & { ref?: React.ForwardedRef<HTMLDivElement> };
 

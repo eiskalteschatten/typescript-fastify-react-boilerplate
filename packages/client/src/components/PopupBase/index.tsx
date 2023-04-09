@@ -1,7 +1,7 @@
 import React, { HTMLAttributes, useEffect, useRef } from 'react';
 import clsx from 'clsx';
 
-import styles from './styles.module.scss';
+import styles from './PopupBase.module.scss';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   open: boolean;

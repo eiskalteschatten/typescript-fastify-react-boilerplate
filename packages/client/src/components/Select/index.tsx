@@ -1,7 +1,7 @@
 import React, { InputHTMLAttributes } from 'react';
 import clsx from 'clsx';
 
-import styles from './styles.module.scss';
+import styles from './Select.module.scss';
 
 interface Props extends InputHTMLAttributes<HTMLSelectElement> {
   label?: string;

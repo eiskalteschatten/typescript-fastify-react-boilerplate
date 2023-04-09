@@ -1,7 +1,7 @@
 import React, { forwardRef, InputHTMLAttributes, useState } from 'react';
 import clsx from 'clsx';
 
-import styles from './styles.module.scss';
+import styles from './Input.module.scss';
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;

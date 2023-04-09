@@ -1,7 +1,7 @@
 import React, { HTMLAttributes } from 'react';
 import clsx from 'clsx';
 
-import styles from './styles.module.scss';
+import styles from './BackgroundCover.module.scss';
 
 const BackgroundCover: React.FC<HTMLAttributes<HTMLDivElement>> = ({ className, ...leftoverProps }) => {
   return (

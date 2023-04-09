@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 
-import styles from './styles.module.scss';
+import styles from './DialogActionBar.module.scss';
 
 interface Props {
   children: React.ReactNode;

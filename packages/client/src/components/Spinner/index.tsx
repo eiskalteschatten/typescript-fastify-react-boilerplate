@@ -1,7 +1,7 @@
 import React, { HtmlHTMLAttributes } from 'react';
 import clsx from 'clsx';
 
-import styles from './styles.module.scss';
+import styles from './Spinner.module.scss';
 
 type Props = HtmlHTMLAttributes<HTMLOrSVGElement>;
 

@@ -6,7 +6,7 @@ import { setSidebarWidth } from 'store/entities/ui';
 import * as constants from '../../constants';
 import ColumnDragger from '../ColumnDragger';
 
-import styles from './styles.module.scss';
+import styles from './Sidebar.module.scss';
 
 interface Props {
   children: React.ReactNode;

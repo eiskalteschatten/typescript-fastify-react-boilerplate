@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import { useAppDispatch } from 'store/hooks';
 import { setGlobalError, setGlobalInfo } from 'store/entities/ui';
 
-import styles from './styles.module.scss';
+import styles from './Toast.module.scss';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
