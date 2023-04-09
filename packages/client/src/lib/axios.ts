@@ -1,8 +1,8 @@
 import axios, { AxiosHeaders } from 'axios';
 
-import { dispatch, getState } from 'store';
-import { logout, setAccessToken } from 'store/entities/account';
-import { setGlobalError, setIsLoading } from 'store/entities/ui';
+import { dispatch, getState } from '@/store';
+import { logout, setAccessToken } from '@/store/entities/account';
+import { setGlobalError, setIsLoading } from '@/store/entities/ui';
 
 let loadingTimeout: NodeJS.Timeout;
 

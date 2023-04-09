@@ -3,9 +3,9 @@ import { Link, useMatch } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
 
-import { useAppSelector } from 'store/hooks';
-import LogoDarkLight from 'components/LogoDarkLight';
-import Card from 'components/Card';
+import { useAppSelector } from '@/store/hooks';
+import LogoDarkLight from '@/components/LogoDarkLight';
+import Card from '@/components/Card';
 
 import styles from './LoginRegistration.module.scss';
 

@@ -1,7 +1,7 @@
 import React, { useCallback, MutableRefObject } from 'react';
 import { debounce } from 'lodash';
 
-import { useAppDispatch } from 'store/hooks';
+import { useAppDispatch } from '@/store/hooks';
 
 import styles from './ColumnDragger.module.scss';
 

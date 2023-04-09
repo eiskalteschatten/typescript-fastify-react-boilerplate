@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 
-import SuspenseSpinner from 'components/SuspenseSpinner';
+import SuspenseSpinner from '@/components/SuspenseSpinner';
 
 interface Props {
   children: React.ReactNode;

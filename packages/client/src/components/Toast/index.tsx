@@ -1,8 +1,8 @@
 import React, { HTMLAttributes } from 'react';
 import clsx from 'clsx';
 
-import { useAppDispatch } from 'store/hooks';
-import { setGlobalError, setGlobalInfo } from 'store/entities/ui';
+import { useAppDispatch } from '@/store/hooks';
+import { setGlobalError, setGlobalInfo } from '@/store/entities/ui';
 
 import styles from './Toast.module.scss';
 

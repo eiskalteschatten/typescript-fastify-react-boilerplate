@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, CSSProperties } from 'react';
 
-import { useAppSelector } from 'store/hooks';
-import { setSidebarWidth } from 'store/entities/ui';
+import { useAppSelector } from '@/store/hooks';
+import { setSidebarWidth } from '@/store/entities/ui';
 
 import * as constants from '../../constants';
 import ColumnDragger from '../ColumnDragger';

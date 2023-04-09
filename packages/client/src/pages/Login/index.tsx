@@ -3,12 +3,12 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
-import { useAppDispatch, useAppSelector } from 'store/hooks';
-import { LoginData, clearAccountError, login } from 'store/entities/account';
-import usePageTitle from 'lib/usePageTitle';
-import Input from 'components/Input';
-import Button from 'components/Button';
-import LoginRegistration from 'layouts/LoginRegistration';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
+import { LoginData, clearAccountError, login } from '@/store/entities/account';
+import usePageTitle from '@/lib/usePageTitle';
+import Input from '@/components/Input';
+import Button from '@/components/Button';
+import LoginRegistration from '@/layouts/LoginRegistration';
 
 const Login: React.FC = () => {
   const { t } = useTranslation(['account']);

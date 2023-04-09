@@ -9,9 +9,9 @@
     "package-lock.json"
   ],
   "scripts": {
-    "start": "react-scripts start",
-    "dev": "npm start",
-    "build": "react-scripts build",
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint \"./**/*.{tsx,ts,js,json}\""
@@ -21,10 +21,10 @@
     "@reduxjs/toolkit": "^1.8.3",
     "@testing-library/react": "^14.0.0",
     "@tfrb/shared": "^0.1.0",
+    "@vitejs/plugin-react-swc": "^3.3.0",
     "axios": "^1.1.0",
     "clsx": "^1.2.1",
     "lodash": "^4.17.21",
-    "pino-pretty": "^10.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.43.9",
@@ -32,21 +32,8 @@
     "react-popper": "^2.3.0",
     "react-redux": "^8.0.2",
     "react-router-dom": "^6.3.0",
-    "react-scripts": "5.0.1",
     "sass": "^1.54.3",
-    "web-vitals": "^3.0.1",
-    "workbox-background-sync": "^6.5.4",
-    "workbox-broadcast-update": "^6.5.4",
-    "workbox-cacheable-response": "^6.5.4",
-    "workbox-core": "^6.5.4",
-    "workbox-expiration": "^6.5.4",
-    "workbox-google-analytics": "^6.5.4",
-    "workbox-navigation-preload": "^6.5.4",
-    "workbox-precaching": "^6.5.4",
-    "workbox-range-requests": "^6.5.4",
-    "workbox-routing": "^6.5.4",
-    "workbox-strategies": "^6.5.4",
-    "workbox-streams": "^6.5.4"
+    "vite": "^4.2.1"
   },
   "devDependencies": {
     "@types/jest": "^29.0.1",

@@ -3,13 +3,13 @@ import { useTranslation } from 'react-i18next';
 import { usePopper } from 'react-popper';
 import { Link, useNavigate } from 'react-router-dom';
 
-import PopperWrapper from 'components/PopperWrapper';
-import PopupBase from 'components/PopupBase';
-import Menu from 'components/Menu';
-import MenuItem from 'components/MenuItem';
-import Button from 'components/Button';
-import { useAppDispatch } from 'store/hooks';
-import { logout } from 'store/entities/account';
+import PopperWrapper from '@/components/PopperWrapper';
+import PopupBase from '@/components/PopupBase';
+import Menu from '@/components/Menu';
+import MenuItem from '@/components/MenuItem';
+import Button from '@/components/Button';
+import { useAppDispatch } from '@/store/hooks';
+import { logout } from '@/store/entities/account';
 
 import styles from '../Toolbar/Toolbar.module.scss';
 

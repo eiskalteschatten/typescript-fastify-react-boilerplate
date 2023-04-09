@@ -2,7 +2,7 @@ import React, { Component, ErrorInfo, ReactNode } from 'react';
 import { t } from 'i18next';
 import { Trans } from 'react-i18next';
 
-import LogoDarkLight from 'components/LogoDarkLight';
+import LogoDarkLight from '@/components/LogoDarkLight';
 
 import styles from './GlobalErrorBoundary.module.scss';
 
