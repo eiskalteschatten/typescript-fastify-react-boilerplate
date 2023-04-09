@@ -3,7 +3,7 @@ import React from 'react';
 import LeftSide from './LeftSide';
 import AccountMenu from './AccountMenu';
 
-import styles from './styles.module.scss';
+import styles from './Toolbar.module.scss';
 
 const Toolbar: React.FC = () => {
   return (

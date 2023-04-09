@@ -10,7 +10,7 @@ import Button from 'components/Button';
 import * as constants from '../../../../constants';
 
 import styles from './LeftSide.module.scss';
-import toolbarStyles from '../../styles.module.scss';
+import toolbarStyles from '../../Toolbar.module.scss';
 
 const logoSize = 30;
 
