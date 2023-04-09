@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
@@ -14,6 +15,7 @@ const Login: React.FC = () => {
   const { t } = useTranslation(['account']);
   const dispatch = useAppDispatch();
   const { isLoading } = useAppSelector(state => state.account);
+  const navigate = useNavigate();
 
   usePageTitle(t('account:login'));
 
@@ -31,7 +33,7 @@ const Login: React.FC = () => {
       password: Yup.string().required('Required'),
     }),
     onSubmit: values => {
-      dispatch(login(values));
+      dispatch(login(values)).then(() => navigate('/')).catch(console.error);
     },
   });
 

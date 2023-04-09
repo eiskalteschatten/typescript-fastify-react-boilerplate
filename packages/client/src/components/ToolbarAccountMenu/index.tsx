@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { usePopper } from 'react-popper';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import PopperWrapper from 'components/PopperWrapper';
 import PopupBase from 'components/PopupBase';
@@ -19,6 +19,7 @@ const AccountMenu: React.FC = () => {
   const popperReference = useRef<HTMLDivElement>(null);
   const { t } = useTranslation(['account']);
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const { styles: popperStyles, attributes } = usePopper(
     buttonReference.current,
@@ -37,7 +38,7 @@ const AccountMenu: React.FC = () => {
   );
 
   const handleLogout = () => {
-    dispatch(logout());
+    dispatch(logout()).then(() => navigate('/login')).catch(console.error);
   };
 
   return (

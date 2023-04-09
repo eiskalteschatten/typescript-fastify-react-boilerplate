@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { passwordRegex } from '@tfrb/shared/dist/lib/accounts';
@@ -15,6 +16,7 @@ const Register: React.FC = () => {
   const { t } = useTranslation(['account']);
   const dispatch = useAppDispatch();
   const { isLoading } = useAppSelector(state => state.account);
+  const navigate = useNavigate();
 
   usePageTitle(t('account:register'));
 
@@ -40,7 +42,7 @@ const Register: React.FC = () => {
       confirmPassword: Yup.string().oneOf([Yup.ref('password')], 'Passwords must match!'),
     }),
     onSubmit: values => {
-      dispatch(register(values));
+      dispatch(register(values)).then(() => navigate('/')).catch(console.error);
     },
   });
 
