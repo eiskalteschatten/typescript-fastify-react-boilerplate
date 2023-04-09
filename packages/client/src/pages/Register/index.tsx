@@ -2,8 +2,7 @@ import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { UserRegistration } from '@tfrb/shared';
-import { passwordRegex } from '@tfrb/shared/dist/lib/accounts';
+import { UserRegistration, passwordRegex } from '@tfrb/shared';
 
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { clearAccountError, register as registerUser } from '@/store/entities/account';

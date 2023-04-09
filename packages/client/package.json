@@ -1,7 +1,6 @@
 {
   "name": "@tfrb/client",
   "version": "0.1.0",
-  "type": "module",
   "files": [
     "build",
     "index.js",
