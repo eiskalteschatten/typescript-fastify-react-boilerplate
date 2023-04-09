@@ -11,7 +11,7 @@ import Button from 'components/Button';
 import { useAppDispatch } from 'store/hooks';
 import { logout } from 'store/entities/account';
 
-import styles from '../../Toolbar.module.scss';
+import styles from '../Toolbar/Toolbar.module.scss';
 
 const AccountMenu: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);

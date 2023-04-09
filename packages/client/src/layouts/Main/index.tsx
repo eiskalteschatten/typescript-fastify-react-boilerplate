@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Toolbar from './Toolbar';
+import Toolbar from 'components/Toolbar';
 
 import styles from './MainLayout.module.scss';
 

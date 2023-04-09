@@ -7,10 +7,10 @@ import { usePathnameWithoutBookId } from 'lib/urlHelper';
 import LogoDarkLight from 'components/LogoDarkLight';
 import Button from 'components/Button';
 
-import * as constants from '../../../../constants';
+import * as constants from '../../constants';
 
 import styles from './LeftSide.module.scss';
-import toolbarStyles from '../../Toolbar.module.scss';
+import toolbarStyles from '../Tooblar/Toolbar.module.scss';
 
 const logoSize = 30;
 

@@ -1,7 +1,7 @@
 import React from 'react';
 
-import LeftSide from './LeftSide';
-import AccountMenu from './AccountMenu';
+import LeftSide from '../ToolbarLeftSide';
+import AccountMenu from '../ToolbarAccountMenu';
 
 import styles from './Toolbar.module.scss';
 
