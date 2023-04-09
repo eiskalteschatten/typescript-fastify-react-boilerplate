@@ -12,4 +12,5 @@ export default {
   confirmPassword: 'Confirm Password',
   invalidEmailOrPassword: 'Invalid email or password!',
   passwordSchemaInvalid: 'Your password must be at least 8 character, include 1 lowercase and 1 uppercase letter as well as 1 of the following characters: !@#$%^&*',
+  passwordsDontMatch: 'The passwords you entered do not match!',
 };
