@@ -1,5 +1,5 @@
 import React, { useLayoutEffect } from 'react';
-import { RouterProvider, Navigate } from 'react-router-dom';
+import { RouterProvider } from 'react-router-dom';
 
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { setWindowWidth, setPrefersDarkMode } from 'store/entities/ui';
@@ -9,6 +9,7 @@ import GlobalInfo from 'components/GlobalInfo';
 import GlobalError from 'components/GlobalError';
 import GlobalLoader from 'components/GlobalLoader';
 import router from 'router';
+import authRouter from 'router/auth';
 
 const App: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -30,29 +31,9 @@ const App: React.FC = () => {
     };
   }, []);
 
-  if (!userIsLoggedin) {
-    return <Navigate to='/login' />;
-  }
-
   return (
     <GlobalErrorBoundary>
-      <RouterProvider router={router} />
-
-      {/* <BrowserRouter>
-        <Routes>
-          {!userIsLoggedin ? (
-            <Route path='*' element={<AuthModule />} />
-          ) : (
-            <>
-              <Route path='/login' element={<Navigate replace to={'/'} />} />
-              <Route path='/register' element={<Navigate replace to={'/'} />} />
-
-              <Route path='*' element={<RootModule />} />
-            </>
-          )}
-        </Routes>
-      </BrowserRouter> */}
-
+      <RouterProvider router={userIsLoggedin ? router : authRouter} />
       <GlobalInfo />
       <GlobalError />
       <GlobalLoader />

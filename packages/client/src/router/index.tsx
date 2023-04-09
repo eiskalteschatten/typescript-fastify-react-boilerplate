@@ -1,23 +1,15 @@
 import React from 'react';
-import { createBrowserRouter } from 'react-router-dom';
+import { Navigate, createBrowserRouter } from 'react-router-dom';
 
-import PageSuspense from 'components/PageSuspense';
+import ComponentWithSuspense from 'components/ComponentWithSuspense';
 
 const Homepage = React.lazy(() => import('../pages/Homepage'));
 const NotFound = React.lazy(() => import('../pages/NotFound'));
 
-function componentWithSuspense(node: React.ReactNode | React.LazyExoticComponent<any>): React.ReactNode {
-  return (
-    <PageSuspense>
-      <>{node}</>
-    </PageSuspense>
-  );
-}
-
 const router = createBrowserRouter([
   {
     path: '/',
-    element: componentWithSuspense(Homepage),
+    element: <ComponentWithSuspense node={<Homepage />} />,
     // loader: rootLoader,
     // children: [
     //   {
@@ -28,8 +20,16 @@ const router = createBrowserRouter([
     // ],
   },
   {
+    path: '/login',
+    element: <Navigate replace to='/' />,
+  },
+  {
+    path: '/register',
+    element: <Navigate replace to='/' />,
+  },
+  {
     path: '*',
-    element: componentWithSuspense(NotFound),
+    element: <ComponentWithSuspense node={<NotFound />} />,
   },
 ]);
 
