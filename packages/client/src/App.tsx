@@ -1,16 +1,14 @@
 import React, { useLayoutEffect } from 'react';
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { RouterProvider, Navigate } from 'react-router-dom';
 
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { setWindowWidth, setPrefersDarkMode } from 'store/entities/ui';
-
-import AuthModule from 'modules/AuthModule';
-import RootModule from 'modules/RootModule';
 
 import GlobalErrorBoundary from 'components/GlobalErrorBoundary';
 import GlobalInfo from 'components/GlobalInfo';
 import GlobalError from 'components/GlobalError';
 import GlobalLoader from 'components/GlobalLoader';
+import router from 'router';
 
 const App: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -32,9 +30,15 @@ const App: React.FC = () => {
     };
   }, []);
 
+  if (!userIsLoggedin) {
+    return <Navigate to='/login' />;
+  }
+
   return (
     <GlobalErrorBoundary>
-      <BrowserRouter>
+      <RouterProvider router={router} />
+
+      {/* <BrowserRouter>
         <Routes>
           {!userIsLoggedin ? (
             <Route path='*' element={<AuthModule />} />
@@ -47,7 +51,7 @@ const App: React.FC = () => {
             </>
           )}
         </Routes>
-      </BrowserRouter>
+      </BrowserRouter> */}
 
       <GlobalInfo />
       <GlobalError />
