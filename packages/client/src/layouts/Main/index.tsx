@@ -2,7 +2,7 @@ import React from 'react';
 
 import Toolbar from './Toolbar';
 
-import styles from './styles.module.scss';
+import styles from './MainLayout.module.scss';
 
 interface Props {
   children: React.ReactNode;

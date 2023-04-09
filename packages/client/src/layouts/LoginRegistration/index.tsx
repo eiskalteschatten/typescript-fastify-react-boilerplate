@@ -7,7 +7,7 @@ import { useAppSelector } from 'store/hooks';
 import LogoDarkLight from 'components/LogoDarkLight';
 import Card from 'components/Card';
 
-import styles from './styles.module.scss';
+import styles from './LoginRegistration.module.scss';
 
 const logoSize = 100;
 
