@@ -10,6 +10,14 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
+  optimizeDeps: {
+    include: ['@tfrb/shared'],
+  },
+  build: {
+    commonjsOptions: {
+      include: [/\@tfrb\/shared/, /node_modules/],
+    },
+  },
   ...process.env.NODE_ENV === 'development' && {
     server: {
       proxy: {
