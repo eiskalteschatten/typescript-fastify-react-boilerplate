@@ -22,7 +22,7 @@ const initialState: State = {
   refreshToken: localStorage.getItem('refreshToken') || undefined,
 };
 
-interface LoginData {
+export interface LoginData {
   email: string;
   password: string;
 }
