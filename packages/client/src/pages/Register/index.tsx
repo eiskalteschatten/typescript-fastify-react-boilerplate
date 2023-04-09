@@ -48,7 +48,6 @@ const Register: React.FC = () => {
 
   return (
     <LoginRegistration>
-
       <form onSubmit={formik.handleSubmit}>
         <Input
           id='email'
