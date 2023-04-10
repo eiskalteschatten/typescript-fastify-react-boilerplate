@@ -15,5 +15,7 @@ export default {
   passwordSchemaInvalid: 'Your password must be at least 8 character, include 1 lowercase and 1 uppercase letter as well as 1 of the following characters: !@#$%^&*',
   passwordsDontMatch: 'The passwords you entered do not match!',
   personalInformation: 'Personal Information',
-  updateYourPassword: 'Update Your Password',
+  changeYourPassword: 'Change Your Password',
+  accountInfoUpdatedSuccessfully: 'Your account information was updated successfully.',
+  passwordChangedSuccessfully: 'Your password was changed successfully.',
 };

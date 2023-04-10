@@ -4,6 +4,7 @@ import axios from 'axios';
 import type { ChangePasswordData, SerializedUser, UserLoginReply, UserRegistration, UserUpdate } from '@tfrb/shared';
 
 import customAxios from '@/lib/axios';
+import { setGlobalInfo } from './ui';
 
 export interface State {
   user?: SerializedUser;
@@ -56,6 +57,7 @@ export const update = createAsyncThunk(
   'account/updateSelf',
   async (updateData: UserUpdate, thunkAPI) => {
     const { data } = await customAxios.put<{ user: SerializedUser }>('/api/user/self', { updateData });
+    thunkAPI.dispatch(setGlobalInfo(t('account:accountInfoUpdatedSuccessfully')));
     return data;
   }
 );
@@ -64,6 +66,7 @@ export const changePassword = createAsyncThunk(
   'account/changePassword',
   async (passwordData: ChangePasswordData, thunkAPI) => {
     await customAxios.patch('/api/user/self-password', { passwordData });
+    thunkAPI.dispatch(setGlobalInfo(t('account:passwordChangedSuccessfully')));
   }
 );
 

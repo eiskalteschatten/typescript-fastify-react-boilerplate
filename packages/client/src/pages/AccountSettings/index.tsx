@@ -78,7 +78,7 @@ const AccountSettings: React.FC = () => {
           </Card>
 
           <Card className='w-full m-0'>
-            <CardTitle>{t('account:updateYourPassword')}</CardTitle>
+            <CardTitle>{t('account:changeYourPassword')}</CardTitle>
 
             <Form onSubmit={passwordForm.handleSubmit(onPasswordSubmit)}>
               <Input
