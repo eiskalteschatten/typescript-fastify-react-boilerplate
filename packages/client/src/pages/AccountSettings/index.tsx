@@ -12,6 +12,7 @@ import Form from '@/components/Form';
 import Input from '@/components/Input';
 import Button from '@/components/Button';
 import Card from '@/components/Card';
+import CardTitle from '@/components/CardTitle';
 
 interface ChangePasswordForm extends ChangePasswordData {
   confirmPassword: string;
@@ -40,6 +41,8 @@ const AccountSettings: React.FC = () => {
 
         <div className='flex flex-col lg:flex-row gap-12'>
           <Card className='w-full m-0'>
+            <CardTitle>{t('account:personalInformation')}</CardTitle>
+
             <Form onSubmit={updateForm.handleSubmit(onUpdateSubmit)}>
               <Input
                 type='email'
@@ -75,6 +78,8 @@ const AccountSettings: React.FC = () => {
           </Card>
 
           <Card className='w-full m-0'>
+            <CardTitle>{t('account:updateYourPassword')}</CardTitle>
+
             <Form onSubmit={passwordForm.handleSubmit(onPasswordSubmit)}>
               <Input
                 type='password'
