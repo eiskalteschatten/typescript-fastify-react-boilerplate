@@ -9,6 +9,7 @@ import './i18n';
 
 import './styles/reboot.scss';
 import './styles/globals.scss';
+import './styles/tailwind.css';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
