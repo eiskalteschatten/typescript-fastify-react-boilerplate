@@ -6,6 +6,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { LoginData, clearAccountError, login } from '@/store/entities/account';
 import usePageTitle from '@/lib/usePageTitle';
+import Form from '@/components/Form';
 import Input from '@/components/Input';
 import Button from '@/components/Button';
 import LoginRegistration from '@/layouts/LoginRegistration';
@@ -26,7 +27,7 @@ const Login: React.FC = () => {
 
   return (
     <LoginRegistration>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <Form onSubmit={handleSubmit(onSubmit)}>
         <Input
           type='email'
           label={t('account:emailAddress')}
@@ -43,8 +44,10 @@ const Login: React.FC = () => {
           {...register('password', { required: true })}
         />
 
-        <Button type='submit' primary showLoader={isLoading}>{t('account:logIn')}</Button>
-      </form>
+        <div className='text-center'>
+          <Button type='submit' primary showLoader={isLoading}>{t('account:logIn')}</Button>
+        </div>
+      </Form>
     </LoginRegistration>
   );
 };

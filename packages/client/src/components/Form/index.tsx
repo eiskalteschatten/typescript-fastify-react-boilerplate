@@ -4,7 +4,7 @@ import clsx from 'clsx';
 const Form: React.FC<HTMLAttributes<HTMLFormElement>> = ({ className, ...leftOverProps }) => {
   return (
     <form
-      className={clsx('flex', 'flex-col', 'gap-5', className)}
+      className={clsx('flex', 'flex-col', 'gap-5', 'w-full', className)}
       {...leftOverProps}
     />
   );
