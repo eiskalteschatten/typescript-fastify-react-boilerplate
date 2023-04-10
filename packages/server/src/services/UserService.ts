@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken';
 import sequelize from 'sequelize';
 import bcrypt from 'bcryptjs';
 import { v4 as uuidv4 } from 'uuid';
-import type { SerializedUser, UserLoginReply, UserUpdate } from '@tfrb/shared';
+import type { ChangePasswordData, SerializedUser, UserLoginReply, UserUpdate } from '@tfrb/shared';
 import { passwordRegex } from '@tfrb/shared';
 
 import User from '~/db/models/User';
@@ -63,6 +63,18 @@ export default class UserService {
     this.user = await this.user.update(updateData);
 
     return this.user;
+  }
+
+  async changePassword(userId: number, passwordData: ChangePasswordData): Promise<void> {
+    this.user = await User.findByPk(userId);
+    const currentPasswordIsValid = await this.validatePassword(passwordData.currentPassword);
+
+    if (!currentPasswordIsValid) {
+      throw new HttpError('The current password you entered is incorrect!', 403);
+    }
+
+    const hash = await bcrypt.hash(passwordData.password, this.saltRounds);
+    await this.user.update({ password: hash });
   }
 
   private async checkIfUserExists(email: string): Promise<boolean> {

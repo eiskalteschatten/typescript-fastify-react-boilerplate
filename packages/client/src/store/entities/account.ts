@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { t } from 'i18next';
 import axios from 'axios';
-import type { SerializedUser, UserLoginReply, UserRegistration, UserUpdate } from '@tfrb/shared';
+import type { ChangePasswordData, SerializedUser, UserLoginReply, UserRegistration, UserUpdate } from '@tfrb/shared';
 
 import customAxios from '@/lib/axios';
 
@@ -55,21 +55,15 @@ export const register = createAsyncThunk(
 export const update = createAsyncThunk(
   'account/updateSelf',
   async (updateData: UserUpdate, thunkAPI) => {
-    const { data } = await customAxios.put<UserLoginReply>('/api/user/self', { updateData });
+    const { data } = await customAxios.put<{ user: SerializedUser }>('/api/user/self', { updateData });
     return data;
   }
 );
 
-export interface ChangePasswordData {
-  password: string;
-  currentPassword: string;
-}
-
 export const changePassword = createAsyncThunk(
   'account/changePassword',
   async (passwordData: ChangePasswordData, thunkAPI) => {
-    const { data } = await customAxios.put<UserLoginReply>('/api/user/self', { passwordData });
-    return data;
+    await customAxios.patch('/api/user/self-password', { passwordData });
   }
 );
 

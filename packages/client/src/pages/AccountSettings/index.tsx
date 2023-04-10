@@ -1,10 +1,10 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { UserUpdate, passwordRegex } from '@tfrb/shared';
+import { ChangePasswordData, UserUpdate, passwordRegex } from '@tfrb/shared';
 
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
-import { ChangePasswordData, changePassword, update } from '@/store/entities/account';
+import { changePassword, update } from '@/store/entities/account';
 import usePageTitle from '@/lib/usePageTitle';
 import MainLayout from '@/layouts/Main';
 import PageTitle from '@/components/PageTitle';
