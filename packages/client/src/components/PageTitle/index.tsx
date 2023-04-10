@@ -1,10 +1,12 @@
-import React, { PropsWithChildren } from 'react';
+import React, { HTMLAttributes } from 'react';
+import clsx from 'clsx';
 
-const PageTitle: React.FC<PropsWithChildren> = ({ children }) => {
+const PageTitle: React.FC<HTMLAttributes<HTMLHeadElement>> = ({ className, ...leftOverProps }) => {
   return (
-    <h1 className='text-2xl font-semibold'>
-      {children}
-    </h1>
+    <h1
+      className={clsx('text-2xl', 'font-semibold', 'mb-6', className)}
+      {...leftOverProps}
+    />
   );
 };
 

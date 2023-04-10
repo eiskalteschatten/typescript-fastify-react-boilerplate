@@ -8,6 +8,7 @@ import { update } from '@/store/entities/account';
 import usePageTitle from '@/lib/usePageTitle';
 import MainLayout from '@/layouts/Main';
 import PageTitle from '@/components/PageTitle';
+import Form from '@/components/Form';
 import Input from '@/components/Input';
 import Button from '@/components/Button';
 
@@ -30,7 +31,7 @@ const AccountSettings: React.FC = () => {
       <div className='container mx-auto px-8'>
         <PageTitle>{t('account:accountSettings')}</PageTitle>
 
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <Form onSubmit={handleSubmit(onSubmit)}>
           <Input
             type='email'
             label={t('account:emailAddress')}
@@ -58,8 +59,10 @@ const AccountSettings: React.FC = () => {
             {...register('lastName', { required: true })}
           />
 
-          <Button type='submit' primary showLoader={isLoading}>{t('common:save')}</Button>
-        </form>
+          <div>
+            <Button type='submit' primary showLoader={isLoading}>{t('common:save')}</Button>
+          </div>
+        </Form>
       </div>
     </MainLayout>
   );
