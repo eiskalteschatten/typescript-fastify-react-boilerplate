@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken';
 import sequelize from 'sequelize';
 import bcrypt from 'bcryptjs';
 import { v4 as uuidv4 } from 'uuid';
-import type { SerializedUser, UserLoginReply } from '@tfrb/shared';
+import type { SerializedUser, UserLoginReply, UserUpdate } from '@tfrb/shared';
 import { passwordRegex } from '@tfrb/shared';
 
 import User from '~/db/models/User';
@@ -50,6 +50,24 @@ export default class UserService {
       ...registrationData,
       password: hash,
     });
+
+    return this.user;
+  }
+
+  async update(userId: number, updateData: UserUpdate): Promise<User> {
+    const existingUser: User = await User.findOne({
+      where: sequelize.where(
+        sequelize.fn('lower', sequelize.col('User.email')),
+        updateData.email.toLowerCase()
+      ),
+    });
+
+    if (existingUser) {
+      throw new HttpError('A user with this email address already exists!', 409);
+    }
+
+    this.user = await User.findByPk(userId);
+    this.user = await this.user.update(updateData);
 
     return this.user;
   }
