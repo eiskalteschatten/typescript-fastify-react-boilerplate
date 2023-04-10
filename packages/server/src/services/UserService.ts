@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken';
 import sequelize from 'sequelize';
 import bcrypt from 'bcryptjs';
 import { v4 as uuidv4 } from 'uuid';
-import type { SerializedUser, UserLoginReply } from '@tfrb/shared';
+import type { ChangePasswordData, SerializedUser, UserLoginReply, UserUpdate } from '@tfrb/shared';
 import { passwordRegex } from '@tfrb/shared';
 
 import User from '~/db/models/User';
@@ -30,14 +30,9 @@ export default class UserService {
   }
 
   async register(registrationData: User): Promise<User> {
-    const existingUser: User = await User.findOne({
-      where: sequelize.where(
-        sequelize.fn('lower', sequelize.col('User.email')),
-        registrationData.email.toLowerCase()
-      ),
-    });
+    const userExists = await this.checkIfUserExists(registrationData.email);
 
-    if (existingUser) {
+    if (userExists) {
       throw new HttpError('A user with this email address already exists!', 409);
     }
 
@@ -52,6 +47,45 @@ export default class UserService {
     });
 
     return this.user;
+  }
+
+  async update(userId: number, updateData: UserUpdate): Promise<User> {
+    this.user = await User.findByPk(userId);
+
+    if (this.user.email !== updateData.email) {
+      const userExists = await this.checkIfUserExists(updateData.email);
+
+      if (userExists) {
+        throw new HttpError('A user with this email address already exists!', 409);
+      }
+    }
+
+    this.user = await this.user.update(updateData);
+
+    return this.user;
+  }
+
+  async changePassword(userId: number, passwordData: ChangePasswordData): Promise<void> {
+    this.user = await User.findByPk(userId);
+    const currentPasswordIsValid = await this.validatePassword(passwordData.currentPassword);
+
+    if (!currentPasswordIsValid) {
+      throw new HttpError('The current password you entered is incorrect!', 403);
+    }
+
+    const hash = await bcrypt.hash(passwordData.password, this.saltRounds);
+    await this.user.update({ password: hash });
+  }
+
+  private async checkIfUserExists(email: string): Promise<boolean> {
+    const existingUser = await User.findOne({
+      where: sequelize.where(
+        sequelize.fn('lower', sequelize.col('User.email')),
+        email.toLowerCase()
+      ),
+    });
+
+    return !!existingUser;
   }
 
   serializeUser(): SerializedUser {

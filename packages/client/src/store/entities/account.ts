@@ -1,9 +1,10 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { t } from 'i18next';
 import axios from 'axios';
-import type { SerializedUser, UserLoginReply, UserRegistration } from '@tfrb/shared';
+import type { ChangePasswordData, SerializedUser, UserLoginReply, UserRegistration, UserUpdate } from '@tfrb/shared';
 
 import customAxios from '@/lib/axios';
+import { setGlobalInfo } from './ui';
 
 export interface State {
   user?: SerializedUser;
@@ -51,6 +52,24 @@ export const register = createAsyncThunk(
     return data;
   }
 );
+
+export const update = createAsyncThunk(
+  'account/updateSelf',
+  async (updateData: UserUpdate, thunkAPI) => {
+    const { data } = await customAxios.put<{ user: SerializedUser }>('/api/user/self', { updateData });
+    thunkAPI.dispatch(setGlobalInfo(t('account:accountInfoUpdatedSuccessfully')));
+    return data;
+  }
+);
+
+export const changePassword = createAsyncThunk(
+  'account/changePassword',
+  async (passwordData: ChangePasswordData, thunkAPI) => {
+    await customAxios.patch('/api/user/self-password', { passwordData });
+    thunkAPI.dispatch(setGlobalInfo(t('account:passwordChangedSuccessfully')));
+  }
+);
+
 
 export const slice = createSlice({
   name: 'account',
@@ -152,6 +171,43 @@ export const slice = createSlice({
     });
 
     builder.addCase(register.rejected, (state, action) => {
+      state.accountError = t('errors:anErrorOccurred');
+      state.isLoading = false;
+      console.error(action.error);
+    });
+
+
+    // Update
+    builder.addCase(update.pending, (state, action) => {
+      state.isLoading = true;
+    });
+
+    builder.addCase(update.fulfilled, (state, action) => {
+      state.user = action.payload.user;
+      localStorage.setItem('user', JSON.stringify(action.payload.user));
+
+      state.isLoading = false;
+      state.accountError = undefined;
+    });
+
+    builder.addCase(update.rejected, (state, action) => {
+      state.accountError = t('errors:anErrorOccurred');
+      state.isLoading = false;
+      console.error(action.error);
+    });
+
+
+    // Change Password
+    builder.addCase(changePassword.pending, (state, action) => {
+      state.isLoading = true;
+    });
+
+    builder.addCase(changePassword.fulfilled, (state, action) => {
+      state.isLoading = false;
+      state.accountError = undefined;
+    });
+
+    builder.addCase(changePassword.rejected, (state, action) => {
       state.accountError = t('errors:anErrorOccurred');
       state.isLoading = false;
       console.error(action.error);

@@ -1,12 +1,13 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { UserRegistration, passwordRegex } from '@tfrb/shared';
 
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
-import { clearAccountError, register as registerUser } from '@/store/entities/account';
+import { register as registerUser } from '@/store/entities/account';
 import usePageTitle from '@/lib/usePageTitle';
+import Form from '@/components/Form';
 import Button from '@/components/Button';
 import Input from '@/components/Input';
 import LoginRegistration from '@/layouts/LoginRegistration';
@@ -25,13 +26,9 @@ const Register: React.FC = () => {
 
   usePageTitle(t('account:register'));
 
-  useEffect(() => {
-    dispatch(clearAccountError());
-  }, []);
-
   return (
     <LoginRegistration>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <Form onSubmit={handleSubmit(onSubmit)}>
         <Input
           type='email'
           label={t('account:emailAddress')}
@@ -85,8 +82,10 @@ const Register: React.FC = () => {
           })}
         />
 
-        <Button type='submit' primary showLoader={isLoading}>{t('account:register')}</Button>
-      </form>
+        <div className='text-center'>
+          <Button type='submit' primary showLoader={isLoading}>{t('account:register')}</Button>
+        </div>
+      </Form>
     </LoginRegistration>
   );
 };
