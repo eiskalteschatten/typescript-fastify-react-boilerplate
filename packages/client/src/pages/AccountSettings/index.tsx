@@ -4,6 +4,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import type { UserUpdate } from '@tfrb/shared';
 
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
+import { update } from '@/store/entities/account';
 import usePageTitle from '@/lib/usePageTitle';
 import MainLayout from '@/layouts/Main';
 import PageTitle from '@/components/PageTitle';
@@ -16,7 +17,7 @@ const AccountSettings: React.FC = () => {
   const dispatch = useAppDispatch();
 
   const { register, handleSubmit } = useForm<UserUpdate>();
-  const onSubmit: SubmitHandler<UserUpdate> = values => dispatch(login(values));
+  const onSubmit: SubmitHandler<UserUpdate> = values => dispatch(update(values));
 
   usePageTitle(t('account:accountSettings'));
 
