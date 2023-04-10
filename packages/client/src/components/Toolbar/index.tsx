@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 
 import LeftSide from '../ToolbarLeftSide';
 import AccountMenu from '../ToolbarAccountMenu';
@@ -7,7 +8,7 @@ import styles from './Toolbar.module.scss';
 
 const Toolbar: React.FC = () => {
   return (
-    <div className={styles.toolbar}>
+    <div className={clsx(styles.toolbar, 'p-2', 'mb-4')}>
       <LeftSide />
       <AccountMenu />
     </div>
