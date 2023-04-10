@@ -7,7 +7,6 @@ import App from './App';
 
 import './i18n';
 
-import './styles/reboot.scss';
 import './styles/globals.scss';
 import './styles/tailwind.css';
 
