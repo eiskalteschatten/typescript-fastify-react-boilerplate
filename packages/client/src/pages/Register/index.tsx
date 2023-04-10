@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { UserRegistration, passwordRegex } from '@tfrb/shared';
 
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
-import { clearAccountError, register as registerUser } from '@/store/entities/account';
+import { register as registerUser } from '@/store/entities/account';
 import usePageTitle from '@/lib/usePageTitle';
 import Form from '@/components/Form';
 import Button from '@/components/Button';
@@ -25,10 +25,6 @@ const Register: React.FC = () => {
   const onSubmit: SubmitHandler<FieldValues> = values => dispatch(registerUser(values)).then(() => navigate('/')).catch(console.error);
 
   usePageTitle(t('account:register'));
-
-  useEffect(() => {
-    dispatch(clearAccountError());
-  }, []);
 
   return (
     <LoginRegistration>

@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
-import { LoginData, clearAccountError, login } from '@/store/entities/account';
+import { LoginData, login } from '@/store/entities/account';
 import usePageTitle from '@/lib/usePageTitle';
 import Form from '@/components/Form';
 import Input from '@/components/Input';
@@ -20,10 +20,6 @@ const Login: React.FC = () => {
   const onSubmit: SubmitHandler<LoginData> = values => dispatch(login(values)).then(() => navigate('/')).catch(console.error);
 
   usePageTitle(t('account:login'));
-
-  useEffect(() => {
-    dispatch(clearAccountError());
-  }, []);
 
   return (
     <LoginRegistration>
