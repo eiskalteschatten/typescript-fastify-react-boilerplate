@@ -30,14 +30,9 @@ export default class UserService {
   }
 
   async register(registrationData: User): Promise<User> {
-    const existingUser: User = await User.findOne({
-      where: sequelize.where(
-        sequelize.fn('lower', sequelize.col('User.email')),
-        registrationData.email.toLowerCase()
-      ),
-    });
+    const userExists = await this.checkIfUserExists(registrationData.email);
 
-    if (existingUser) {
+    if (userExists) {
       throw new HttpError('A user with this email address already exists!', 409);
     }
 
@@ -58,14 +53,9 @@ export default class UserService {
     this.user = await User.findByPk(userId);
 
     if (this.user.email !== updateData.email) {
-      const existingUser: User = await User.findOne({
-        where: sequelize.where(
-          sequelize.fn('lower', sequelize.col('User.email')),
-          updateData.email.toLowerCase()
-        ),
-      });
+      const userExists = await this.checkIfUserExists(updateData.email);
 
-      if (existingUser) {
+      if (userExists) {
         throw new HttpError('A user with this email address already exists!', 409);
       }
     }
@@ -73,6 +63,17 @@ export default class UserService {
     this.user = await this.user.update(updateData);
 
     return this.user;
+  }
+
+  private async checkIfUserExists(email: string): Promise<boolean> {
+    const existingUser = await User.findOne({
+      where: sequelize.where(
+        sequelize.fn('lower', sequelize.col('User.email')),
+        email.toLowerCase()
+      ),
+    });
+
+    return !!existingUser;
   }
 
   serializeUser(): SerializedUser {
