@@ -7,10 +7,11 @@ export default {
   accountSettings: 'Account Settings',
   emailAddress: 'Email Address',
   password: 'Password',
-  firstName: 'First Name',
-  lastName: 'Last Name',
+  currentPassword: 'Current Password',
   confirmPassword: 'Confirm Password',
   invalidEmailOrPassword: 'Invalid email or password!',
+  firstName: 'First Name',
+  lastName: 'Last Name',
   passwordSchemaInvalid: 'Your password must be at least 8 character, include 1 lowercase and 1 uppercase letter as well as 1 of the following characters: !@#$%^&*',
   passwordsDontMatch: 'The passwords you entered do not match!',
 };

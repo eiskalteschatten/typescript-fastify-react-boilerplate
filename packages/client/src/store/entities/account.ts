@@ -60,6 +60,20 @@ export const update = createAsyncThunk(
   }
 );
 
+export interface ChangePasswordData {
+  password: string;
+  currentPassword: string;
+}
+
+export const changePassword = createAsyncThunk(
+  'account/changePassword',
+  async (passwordData: ChangePasswordData, thunkAPI) => {
+    const { data } = await customAxios.put<UserLoginReply>('/api/user/self', { passwordData });
+    return data;
+  }
+);
+
+
 export const slice = createSlice({
   name: 'account',
   initialState,
@@ -180,6 +194,23 @@ export const slice = createSlice({
     });
 
     builder.addCase(update.rejected, (state, action) => {
+      state.accountError = t('errors:anErrorOccurred');
+      state.isLoading = false;
+      console.error(action.error);
+    });
+
+
+    // Change Password
+    builder.addCase(changePassword.pending, (state, action) => {
+      state.isLoading = true;
+    });
+
+    builder.addCase(changePassword.fulfilled, (state, action) => {
+      state.isLoading = false;
+      state.accountError = undefined;
+    });
+
+    builder.addCase(changePassword.rejected, (state, action) => {
       state.accountError = t('errors:anErrorOccurred');
       state.isLoading = false;
       console.error(action.error);
