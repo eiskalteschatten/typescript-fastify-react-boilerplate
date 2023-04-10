@@ -10,6 +10,7 @@ export interface User {
 
 export type SerializedUser = Omit<User, 'password' | 'createdAt' | 'updatedAt'>;
 export type UserRegistration = Omit<User, 'id' | 'createdAt' | 'updatedAt'>;
+export type UserUpdate = Omit<User, 'id' | 'password' | 'createdAt' | 'updatedAt'>;
 
 export interface UserLoginReply {
   user: SerializedUser;
