@@ -55,18 +55,21 @@ export default class UserService {
   }
 
   async update(userId: number, updateData: UserUpdate): Promise<User> {
-    const existingUser: User = await User.findOne({
-      where: sequelize.where(
-        sequelize.fn('lower', sequelize.col('User.email')),
-        updateData.email.toLowerCase()
-      ),
-    });
+    this.user = await User.findByPk(userId);
 
-    if (existingUser) {
-      throw new HttpError('A user with this email address already exists!', 409);
+    if (this.user.email !== updateData.email) {
+      const existingUser: User = await User.findOne({
+        where: sequelize.where(
+          sequelize.fn('lower', sequelize.col('User.email')),
+          updateData.email.toLowerCase()
+        ),
+      });
+
+      if (existingUser) {
+        throw new HttpError('A user with this email address already exists!', 409);
+      }
     }
 
-    this.user = await User.findByPk(userId);
     this.user = await this.user.update(updateData);
 
     return this.user;
