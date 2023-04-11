@@ -27,7 +27,7 @@ const SidebarItem: React.FC<Props> = ({ ItemIcon, title, path, marginBottom, mat
   }
 
   const handleCloseMobileSidebar = () => {
-    if (windowWidth <= constants.window.WINDOW_WIDTHS.xsMax || (windowWidth >= constants.window.WINDOW_WIDTHS.mdMin && windowWidth <= constants.window.WINDOW_WIDTHS.mdMax)) {
+    if (windowWidth < constants.window.WINDOW_WIDTHS.lgMin) {
       dispatch(setMobileSidebarOpen(false));
     }
   };
