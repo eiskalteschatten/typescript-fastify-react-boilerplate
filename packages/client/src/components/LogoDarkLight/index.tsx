@@ -8,11 +8,11 @@ interface Props extends HTMLAttributes<HTMLPictureElement> {
   height?: number;
 }
 
-const LogoDarkLight: React.FC<Props> = ({ width, height, ...leftoverProps }) => {
+const LogoDarkLight: React.FC<Props> = ({ className, width, height, ...leftoverProps }) => {
   return (
     <picture {...leftoverProps}>
       <source srcSet={WhiteLogo} media='(prefers-color-scheme: dark)' />
-      <img src={BlackLogo} width={width} height={height} />
+      <img src={BlackLogo} width={width} height={height} className={className} />
     </picture>
   );
 };
