@@ -40,7 +40,7 @@ const AccountSettings: React.FC = () => {
         <PageTitle>{t('account:accountSettings')}</PageTitle>
 
         <div className='flex flex-col lg:flex-row gap-12'>
-          <Card className='w-full m-0'>
+          <Card className='w-full'>
             <CardTitle>{t('account:personalInformation')}</CardTitle>
 
             <Form onSubmit={updateForm.handleSubmit(onUpdateSubmit)}>
@@ -77,7 +77,7 @@ const AccountSettings: React.FC = () => {
             </Form>
           </Card>
 
-          <Card className='w-full m-0'>
+          <Card className='w-full'>
             <CardTitle>{t('account:changeYourPassword')}</CardTitle>
 
             <Form onSubmit={passwordForm.handleSubmit(onPasswordSubmit)}>
