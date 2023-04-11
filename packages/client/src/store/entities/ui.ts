@@ -5,8 +5,6 @@ export interface State {
   prefersDarkMode: boolean;
   isLoading: boolean;
   mobileSidebarOpen: boolean;
-  sidebarWidth: number;
-  bookListWidth: number;
   globalInfo?: string;
   globalError?: string;
 }
@@ -16,8 +14,6 @@ const initialState: State = {
   prefersDarkMode: false,
   isLoading: false,
   mobileSidebarOpen: false,
-  sidebarWidth: Number(localStorage.getItem('sidebarWidth')) || 235,
-  bookListWidth: Number(localStorage.getItem('bookListWidth')) || 325,
 };
 
 export const slice = createSlice({
@@ -36,14 +32,6 @@ export const slice = createSlice({
     setMobileSidebarOpen(state, action: PayloadAction<boolean>) {
       state.mobileSidebarOpen = action.payload;
     },
-    setSidebarWidth(state, action: PayloadAction<number>) {
-      localStorage.setItem('sidebarWidth', action.payload.toString());
-      state.sidebarWidth = action.payload;
-    },
-    setBookListWidth(state, action: PayloadAction<number>) {
-      localStorage.setItem('bookListWidth', action.payload.toString());
-      state.bookListWidth = action.payload;
-    },
     setGlobalInfo(state, action: PayloadAction<string>) {
       state.globalInfo = action.payload;
     },
@@ -58,8 +46,6 @@ export const {
   setPrefersDarkMode,
   setIsLoading,
   setMobileSidebarOpen,
-  setSidebarWidth,
-  setBookListWidth,
   setGlobalInfo,
   setGlobalError,
 } = slice.actions;
