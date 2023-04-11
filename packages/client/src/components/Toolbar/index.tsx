@@ -8,7 +8,7 @@ import styles from './Toolbar.module.scss';
 
 const Toolbar: React.FC = () => {
   return (
-    <div className={clsx(styles.toolbar, 'p-2', 'mb-4')}>
+    <div className={clsx(styles.toolbar, 'p-2')}>
       <LeftSide />
       <AccountMenu />
     </div>

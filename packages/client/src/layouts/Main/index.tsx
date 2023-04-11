@@ -2,18 +2,16 @@ import React from 'react';
 
 import Toolbar from '@/components/Toolbar';
 
-import styles from './MainLayout.module.scss';
-
 interface Props {
   children: React.ReactNode;
 }
 
 const MainLayout: React.FC<Props> = ({ children }) => {
   return (
-    <div className={styles.layout}>
+    <div className='flex flex-col w-full h-full'>
       <Toolbar />
 
-      <div className={styles.columnLayout}>
+      <div className='w-full h-full relative overflow-auto py-4'>
         {children}
       </div>
     </div>
