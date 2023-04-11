@@ -3,6 +3,7 @@ import React from 'react';
 import { useAppSelector } from '@/store/hooks';
 import Toolbar from '@/components/Toolbar';
 import SidebarMain from '@/components/SidebarMain';
+import OffCanvasMenu from '@/components/OffCanvasMenu';
 
 import * as constants from '@/constants';
 
@@ -18,8 +19,10 @@ const MainLayout: React.FC<Props> = ({ children }) => {
       <Toolbar />
 
       <div className='w-full h-full flex flex-row'>
-        {windowWidth >= constants.window.WINDOW_WIDTHS.lgMin && (
+        {windowWidth >= constants.window.WINDOW_WIDTHS.lgMin ? (
           <SidebarMain />
+        ) : (
+          <OffCanvasMenu />
         )}
 
         <div className='w-full h-full relative overflow-auto py-4'>
