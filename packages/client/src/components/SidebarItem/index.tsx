@@ -13,15 +13,16 @@ export interface Props {
   ItemIcon: React.FunctionComponent;
   title: string;
   marginBottom?: boolean;
+  matchEnd?: boolean;
 }
 
-const SidebarItem: React.FC<Props> = ({ ItemIcon, title, path, marginBottom }) => {
+const SidebarItem: React.FC<Props> = ({ ItemIcon, title, path, marginBottom, matchEnd = false }) => {
   const dispatch = useAppDispatch();
   const { windowWidth } = useAppSelector(state => state.ui);
   const resolved = useResolvedPath(path);
-  const match = useMatch({ path: resolved.pathname, end: false });
+  const match = useMatch({ path: resolved.pathname, end: matchEnd });
 
-  if (path.charAt(path.length -1) === '/') {
+  if (path !== '/' && path.charAt(path.length - 1) === '/') {
     path = path.slice(0, -1);
   }
 
