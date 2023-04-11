@@ -3,14 +3,14 @@ import { Navigate, createBrowserRouter } from 'react-router-dom';
 
 import ComponentWithSuspense from '@/components/ComponentWithSuspense';
 
-const Homepage = React.lazy(() => import('../pages/Homepage'));
+const Dashboard = React.lazy(() => import('../pages/Dashboard'));
 const AccountSettings = React.lazy(() => import('../pages/AccountSettings'));
 const NotFound = React.lazy(() => import('../pages/NotFound'));
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <ComponentWithSuspense node={<Homepage />} />,
+    element: <ComponentWithSuspense node={<Dashboard />} />,
     // loader: rootLoader,
     // children: [
     //   {
