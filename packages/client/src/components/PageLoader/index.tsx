@@ -8,7 +8,7 @@ import styles from './PageLoader.module.scss';
 const initialWidth = 0;
 
 const PageLoader: React.FC = () => {
-  const { pageIsLoading } = useAppSelector(state => state.ui);
+  const { isLoading } = useAppSelector(state => state.ui);
   const [widthInterval, setWidthInterval] = useState<NodeJS.Timer>();
   const [width, setWidth] = useState<number>(initialWidth);
 
@@ -23,7 +23,7 @@ const PageLoader: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    if (pageIsLoading) {
+    if (isLoading) {
       if (widthInterval) {
         clearInterval(widthInterval);
       }
@@ -37,7 +37,7 @@ const PageLoader: React.FC = () => {
     else {
       setWidth(initialWidth);
     }
-  }, [pageIsLoading]);
+  }, [isLoading]);
 
   useEffect(() => {
     if (widthInterval && width > screen.width) {
@@ -49,8 +49,8 @@ const PageLoader: React.FC = () => {
     <div className={styles.pageLoader}>
       <div
         className={clsx(styles.bar, {
-          [styles.loading]: pageIsLoading,
-          [styles.hidden]: !pageIsLoading,
+          [styles.loading]: isLoading,
+          [styles.hidden]: !isLoading,
         })}
         style={{ width }}
       />
