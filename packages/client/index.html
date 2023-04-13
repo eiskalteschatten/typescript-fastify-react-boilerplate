@@ -16,7 +16,11 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root">
-      <img src="/dynamic-icon-monotone.svg" class="loading-logo">
+      <img src="/dynamic-icon-monotone.svg" class="">
+      <picture>
+        <source srcSet="/icon-monotone-white.svg" media="(prefers-color-scheme: dark)" />
+        <img src="/icon-monotone-black.svg" class="loading-logo">
+      </picture>
     </div>
     <script type="module" src="/src/index.tsx"></script>
   </body>
