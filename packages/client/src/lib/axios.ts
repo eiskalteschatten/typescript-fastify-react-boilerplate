@@ -2,7 +2,7 @@ import axios, { AxiosHeaders } from 'axios';
 
 import { dispatch, getState } from '@/store';
 import { logout, setAccessToken } from '@/store/entities/account';
-import { setGlobalError, setPageIsLoading } from '@/store/entities/ui';
+import { setGlobalError, setDataIsLoading } from '@/store/entities/ui';
 
 let loadingTimeout: NodeJS.Timeout;
 
@@ -12,10 +12,10 @@ const dispatchIsLoading = (isLoading: boolean) => {
   }
 
   if (isLoading) {
-    loadingTimeout = setTimeout(() => dispatch(setPageIsLoading(isLoading)), 500);
+    loadingTimeout = setTimeout(() => dispatch(setDataIsLoading(isLoading)), 500);
   }
   else {
-    dispatch(setPageIsLoading(isLoading));
+    dispatch(setDataIsLoading(isLoading));
   }
 };
 

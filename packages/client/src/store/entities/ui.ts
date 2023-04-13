@@ -4,6 +4,7 @@ export interface State {
   windowWidth: number;
   prefersDarkMode: boolean;
   pageIsLoading: boolean;
+  dataIsLoading: boolean;
   mobileSidebarOpen: boolean;
   globalInfo?: string;
   globalError?: string;
@@ -13,6 +14,7 @@ const initialState: State = {
   windowWidth: window.innerWidth,
   prefersDarkMode: false,
   pageIsLoading: false,
+  dataIsLoading: false,
   mobileSidebarOpen: false,
 };
 
@@ -28,6 +30,9 @@ export const slice = createSlice({
     },
     setPageIsLoading(state, action: PayloadAction<boolean>) {
       state.pageIsLoading = action.payload;
+    },
+    setDataIsLoading(state, action: PayloadAction<boolean>) {
+      state.dataIsLoading = action.payload;
     },
     setMobileSidebarOpen(state, action: PayloadAction<boolean>) {
       state.mobileSidebarOpen = action.payload;
@@ -45,6 +50,7 @@ export const {
   setWindowWidth,
   setPrefersDarkMode,
   setPageIsLoading,
+  setDataIsLoading,
   setMobileSidebarOpen,
   setGlobalInfo,
   setGlobalError,
