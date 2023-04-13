@@ -6,7 +6,7 @@ interface Props {
   children: React.ReactNode;
 }
 
-const PageSuspense: React.FC<Props> = ({ children }) => {
+const FullPageSuspense: React.FC<Props> = ({ children }) => {
   return (
     <Suspense fallback={
       <div style={{ flexGrow: 1 }}>
@@ -18,4 +18,4 @@ const PageSuspense: React.FC<Props> = ({ children }) => {
   );
 };
 
-export default PageSuspense;
+export default FullPageSuspense;

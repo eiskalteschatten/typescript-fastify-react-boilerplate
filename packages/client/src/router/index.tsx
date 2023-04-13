@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navigate, createBrowserRouter } from 'react-router-dom';
 
-import ComponentWithSuspense from '@/components/ComponentWithSuspense';
+import FullPageSuspense from '@/components/FullPageSuspense';
 
 const Dashboard = React.lazy(() => import('../pages/Dashboard'));
 const AccountSettings = React.lazy(() => import('../pages/AccountSettings'));
@@ -10,7 +10,11 @@ const NotFound = React.lazy(() => import('../pages/NotFound'));
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <ComponentWithSuspense node={<Dashboard />} />,
+    element: (
+      <FullPageSuspense>
+        <Dashboard />
+      </FullPageSuspense>
+    ),
     // loader: rootLoader,
     // children: [
     //   {
@@ -22,7 +26,11 @@ const router = createBrowserRouter([
   },
   {
     path: '/account',
-    element: <ComponentWithSuspense node={<AccountSettings />} />,
+    element: (
+      <FullPageSuspense>
+        <AccountSettings />
+      </FullPageSuspense>
+    ),
   },
   {
     path: '/login',
@@ -34,7 +42,11 @@ const router = createBrowserRouter([
   },
   {
     path: '*',
-    element: <ComponentWithSuspense node={<NotFound />} />,
+    element: (
+      <FullPageSuspense>
+        <NotFound />
+      </FullPageSuspense>
+    ),
   },
 ]);
 
