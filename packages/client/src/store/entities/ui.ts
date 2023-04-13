@@ -3,7 +3,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 export interface State {
   windowWidth: number;
   prefersDarkMode: boolean;
-  isLoading: boolean;
+  pageIsLoading: boolean;
   mobileSidebarOpen: boolean;
   globalInfo?: string;
   globalError?: string;
@@ -12,7 +12,7 @@ export interface State {
 const initialState: State = {
   windowWidth: window.innerWidth,
   prefersDarkMode: false,
-  isLoading: false,
+  pageIsLoading: false,
   mobileSidebarOpen: false,
 };
 
@@ -26,8 +26,8 @@ export const slice = createSlice({
     setPrefersDarkMode(state, action: PayloadAction<boolean>) {
       state.prefersDarkMode = action.payload;
     },
-    setIsLoading(state, action: PayloadAction<boolean>) {
-      state.isLoading = action.payload;
+    setPageIsLoading(state, action: PayloadAction<boolean>) {
+      state.pageIsLoading = action.payload;
     },
     setMobileSidebarOpen(state, action: PayloadAction<boolean>) {
       state.mobileSidebarOpen = action.payload;
@@ -44,7 +44,7 @@ export const slice = createSlice({
 export const {
   setWindowWidth,
   setPrefersDarkMode,
-  setIsLoading,
+  setPageIsLoading,
   setMobileSidebarOpen,
   setGlobalInfo,
   setGlobalError,
