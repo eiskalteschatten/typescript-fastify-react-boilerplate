@@ -8,6 +8,7 @@ import GlobalErrorBoundary from '@/components/GlobalErrorBoundary';
 import GlobalInfo from '@/components/GlobalInfo';
 import GlobalError from '@/components/GlobalError';
 import GlobalLoader from '@/components/GlobalLoader';
+import PageLoader from '@/components/PageLoader';
 import router from '@/router';
 import authRouter from '@/router/auth';
 
@@ -33,6 +34,7 @@ const App: React.FC = () => {
 
   return (
     <GlobalErrorBoundary>
+      <PageLoader />
       <RouterProvider router={userIsLoggedin ? router : authRouter} />
       <GlobalInfo />
       <GlobalError />

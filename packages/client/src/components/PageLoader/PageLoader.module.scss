@@ -13,10 +13,10 @@
     height: 3px;
     width: 0;
     opacity: 0;
-    transition: width $animationSpeed linear, opacity $animationSpeed linear;
+    transition: width 350ms linear, opacity 350ms linear;
 
     &.hidden {
-      animation: hide $animationSpeed linear;
+      animation: hide 350ms linear;
       opacity: 0;
       width: 0;
     }
