@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 
-import SuspenseSpinner from '@/components/SuspenseSpinner';
+import PageLoader from '../PageLoader';
 
 interface Props {
   children: React.ReactNode;
@@ -8,11 +8,7 @@ interface Props {
 
 const FullPageSuspense: React.FC<Props> = ({ children }) => {
   return (
-    <Suspense fallback={
-      <div style={{ flexGrow: 1 }}>
-        <SuspenseSpinner />
-      </div>
-    }>
+    <Suspense fallback={<PageLoader />}>
       {children}
     </Suspense>
   );
