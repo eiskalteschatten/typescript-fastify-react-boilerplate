@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 
-import FullPageSuspense from '@/components/FullPageSuspense';
+import PageLoader from '@/components/PageLoader';
 
 export const loadable = (Component: React.LazyExoticComponent<React.FC>) => (props: any) => (
-  <FullPageSuspense>
+  <Suspense fallback={<PageLoader />}>
     <Component {...props} />
-  </FullPageSuspense>
+  </Suspense>
 );
 
 export default loadable;
