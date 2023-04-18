@@ -1,26 +1,28 @@
 import React from 'react';
 import { Navigate, createBrowserRouter } from 'react-router-dom';
 
-const Dashboard = React.lazy(() => import('../pages/Dashboard'));
-const AccountSettings = React.lazy(() => import('../pages/AccountSettings'));
-const NotFound = React.lazy(() => import('../pages/NotFound'));
+import Loadable from '@/lib/Loadable';
+import MainLayout from '@/layouts/Main';
+
+const Dashboard = Loadable(React.lazy(() => import('../pages/Dashboard')));
+const AccountSettings = Loadable(React.lazy(() => import('../pages/AccountSettings')));
+const NotFound = Loadable(React.lazy(() => import('../pages/NotFound')));
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: (<Dashboard />),
-    // loader: rootLoader,
-    // children: [
-    //   {
-    //     path: 'team',
-    //     element: <Team />,
-    //     // loader: teamLoader,
-    //   },
-    // ],
-  },
-  {
-    path: '/account',
-    element: (<AccountSettings />),
+    element: (<MainLayout />),
+    children: [
+      {
+        path: '',
+        element: <Dashboard />,
+        // loader: teamLoader,
+      },
+      {
+        path: '/account',
+        element: (<AccountSettings />),
+      },
+    ],
   },
   {
     path: '/login',
@@ -32,7 +34,11 @@ const router = createBrowserRouter([
   },
   {
     path: '*',
-    element: (<NotFound />),
+    element: (
+      <MainLayout>
+        <NotFound />
+      </MainLayout>
+    ),
   },
 ]);
 

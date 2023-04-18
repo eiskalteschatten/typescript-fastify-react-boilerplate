@@ -6,7 +6,6 @@ import { ChangePasswordData, UserUpdate, passwordRegex } from '@tfrb/shared';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { changePassword, update } from '@/store/entities/account';
 import usePageTitle from '@/lib/usePageTitle';
-import MainLayout from '@/layouts/Main';
 import PageTitle from '@/components/PageTitle';
 import Form from '@/components/Form';
 import Input from '@/components/Input';
@@ -35,98 +34,96 @@ const AccountSettings: React.FC = () => {
   }
 
   return (
-    <MainLayout>
-      <div className='container mx-auto px-8'>
-        <PageTitle>{t('account:accountSettings')}</PageTitle>
+    <div className='container mx-auto px-8'>
+      <PageTitle>{t('account:accountSettings')}</PageTitle>
 
-        <div className='flex flex-col lg:flex-row gap-12'>
-          <Card className='w-full'>
-            <CardTitle>{t('account:personalInformation')}</CardTitle>
+      <div className='flex flex-col lg:flex-row gap-12'>
+        <Card className='w-full'>
+          <CardTitle>{t('account:personalInformation')}</CardTitle>
 
-            <Form onSubmit={updateForm.handleSubmit(onUpdateSubmit)}>
-              <Input
-                type='email'
-                label={t('account:emailAddress')}
-                defaultValue={user.email}
-                required
-                fullWidth
-                {...updateForm.register('email', { required: true })}
-              />
+          <Form onSubmit={updateForm.handleSubmit(onUpdateSubmit)}>
+            <Input
+              type='email'
+              label={t('account:emailAddress')}
+              defaultValue={user.email}
+              required
+              fullWidth
+              {...updateForm.register('email', { required: true })}
+            />
 
-              <Input
-                type='text'
-                label={t('account:firstName')}
-                defaultValue={user.firstName}
-                required
-                fullWidth
-                {...updateForm.register('firstName', { required: true })}
-              />
+            <Input
+              type='text'
+              label={t('account:firstName')}
+              defaultValue={user.firstName}
+              required
+              fullWidth
+              {...updateForm.register('firstName', { required: true })}
+            />
 
-              <Input
-                type='text'
-                label={t('account:lastName')}
-                defaultValue={user.lastName}
-                required
-                fullWidth
-                {...updateForm.register('lastName', { required: true })}
-              />
+            <Input
+              type='text'
+              label={t('account:lastName')}
+              defaultValue={user.lastName}
+              required
+              fullWidth
+              {...updateForm.register('lastName', { required: true })}
+            />
 
-              <div className='text-center'>
-                <Button type='submit' primary showLoader={isLoading}>{t('common:save')}</Button>
-              </div>
-            </Form>
-          </Card>
+            <div className='text-center'>
+              <Button type='submit' primary showLoader={isLoading}>{t('common:save')}</Button>
+            </div>
+          </Form>
+        </Card>
 
-          <Card className='w-full'>
-            <CardTitle>{t('account:changeYourPassword')}</CardTitle>
+        <Card className='w-full'>
+          <CardTitle>{t('account:changeYourPassword')}</CardTitle>
 
-            <Form onSubmit={passwordForm.handleSubmit(onPasswordSubmit)}>
-              <Input
-                type='password'
-                label={t('account:currentPassword')}
-                error={passwordForm.formState.errors.currentPassword?.message}
-                required
-                fullWidth
-                {...passwordForm.register('currentPassword', { required: true })}
-              />
+          <Form onSubmit={passwordForm.handleSubmit(onPasswordSubmit)}>
+            <Input
+              type='password'
+              label={t('account:currentPassword')}
+              error={passwordForm.formState.errors.currentPassword?.message}
+              required
+              fullWidth
+              {...passwordForm.register('currentPassword', { required: true })}
+            />
 
-              <Input
-                type='password'
-                label={t('account:password')}
-                error={passwordForm.formState.errors.password?.message}
-                required
-                fullWidth
-                {...passwordForm.register('password', {
-                  required: true,
-                  validate: {
-                    matchesSchema: value => passwordRegex.test(value) || t('account:passwordSchemaInvalid'),
-                  },
-                })}
-              />
+            <Input
+              type='password'
+              label={t('account:password')}
+              error={passwordForm.formState.errors.password?.message}
+              required
+              fullWidth
+              {...passwordForm.register('password', {
+                required: true,
+                validate: {
+                  matchesSchema: value => passwordRegex.test(value) || t('account:passwordSchemaInvalid'),
+                },
+              })}
+            />
 
-              <Input
-                type='password'
-                label={t('account:confirmPassword')}
-                error={passwordForm.formState.errors.confirmPassword?.message}
-                required
-                fullWidth
-                {...passwordForm.register('confirmPassword', {
-                  required: true,
-                  validate: {
-                    passwordsEqual: value => value === passwordForm.getValues().password || t('account:passwordsDontMatch'),
-                    matchesSchema: value => passwordRegex.test(value) || t('account:passwordSchemaInvalid'),
-                  },
-                })}
-              />
+            <Input
+              type='password'
+              label={t('account:confirmPassword')}
+              error={passwordForm.formState.errors.confirmPassword?.message}
+              required
+              fullWidth
+              {...passwordForm.register('confirmPassword', {
+                required: true,
+                validate: {
+                  passwordsEqual: value => value === passwordForm.getValues().password || t('account:passwordsDontMatch'),
+                  matchesSchema: value => passwordRegex.test(value) || t('account:passwordSchemaInvalid'),
+                },
+              })}
+            />
 
-              <div className='text-center'>
-                <Button type='submit' primary showLoader={isLoading}>{t('common:save')}</Button>
-              </div>
-            </Form>
-          </Card>
-        </div>
+            <div className='text-center'>
+              <Button type='submit' primary showLoader={isLoading}>{t('common:save')}</Button>
+            </div>
+          </Form>
+        </Card>
       </div>
-    </MainLayout>
+    </div>
   );
 };
 

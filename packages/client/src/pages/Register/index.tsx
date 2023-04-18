@@ -10,7 +10,6 @@ import usePageTitle from '@/lib/usePageTitle';
 import Form from '@/components/Form';
 import Button from '@/components/Button';
 import Input from '@/components/Input';
-import LoginRegistration from '@/layouts/LoginRegistration';
 
 interface FieldValues extends UserRegistration {
   confirmPassword: string;
@@ -27,66 +26,64 @@ const Register: React.FC = () => {
   usePageTitle(t('account:register'));
 
   return (
-    <LoginRegistration>
-      <Form onSubmit={handleSubmit(onSubmit)}>
-        <Input
-          type='email'
-          label={t('account:emailAddress')}
-          required
-          fullWidth
-          {...register('email', { required: true })}
-        />
+    <Form onSubmit={handleSubmit(onSubmit)}>
+      <Input
+        type='email'
+        label={t('account:emailAddress')}
+        required
+        fullWidth
+        {...register('email', { required: true })}
+      />
 
-        <Input
-          type='text'
-          label={t('account:firstName')}
-          required
-          fullWidth
-          {...register('firstName', { required: true })}
-        />
+      <Input
+        type='text'
+        label={t('account:firstName')}
+        required
+        fullWidth
+        {...register('firstName', { required: true })}
+      />
 
-        <Input
-          type='text'
-          label={t('account:lastName')}
-          required
-          fullWidth
-          {...register('lastName', { required: true })}
-        />
+      <Input
+        type='text'
+        label={t('account:lastName')}
+        required
+        fullWidth
+        {...register('lastName', { required: true })}
+      />
 
-        <Input
-          type='password'
-          label={t('account:password')}
-          error={errors.password?.message}
-          required
-          fullWidth
-          {...register('password', {
-            required: true,
-            validate: {
-              matchesSchema: value => passwordRegex.test(value) || t('account:passwordSchemaInvalid'),
-            },
-          })}
-        />
+      <Input
+        type='password'
+        label={t('account:password')}
+        error={errors.password?.message}
+        required
+        fullWidth
+        {...register('password', {
+          required: true,
+          validate: {
+            matchesSchema: value => passwordRegex.test(value) || t('account:passwordSchemaInvalid'),
+          },
+        })}
+      />
 
-        <Input
-          type='password'
-          label={t('account:confirmPassword')}
-          error={errors.confirmPassword?.message}
-          required
-          fullWidth
-          {...register('confirmPassword', {
-            required: true,
-            validate: {
-              passwordsEqual: value => value === getValues().password || t('account:passwordsDontMatch'),
-              matchesSchema: value => passwordRegex.test(value) || t('account:passwordSchemaInvalid'),
-            },
-          })}
-        />
+      <Input
+        type='password'
+        label={t('account:confirmPassword')}
+        error={errors.confirmPassword?.message}
+        required
+        fullWidth
+        {...register('confirmPassword', {
+          required: true,
+          validate: {
+            passwordsEqual: value => value === getValues().password || t('account:passwordsDontMatch'),
+            matchesSchema: value => passwordRegex.test(value) || t('account:passwordSchemaInvalid'),
+          },
+        })}
+      />
 
-        <div className='text-center'>
-          <Button type='submit' primary showLoader={isLoading}>{t('account:register')}</Button>
-        </div>
-      </Form>
-    </LoginRegistration>
+      <div className='text-center'>
+        <Button type='submit' primary showLoader={isLoading}>{t('account:register')}</Button>
+      </div>
+    </Form>
   );
 };
 

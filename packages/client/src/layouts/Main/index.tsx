@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
+import { Outlet } from 'react-router-dom';
 
 import { useAppSelector } from '@/store/hooks';
 import Toolbar from '@/components/Toolbar';
@@ -7,11 +8,7 @@ import OffCanvasMenu from '@/components/OffCanvasMenu';
 
 import * as constants from '@/constants';
 
-interface Props {
-  children: React.ReactNode;
-}
-
-const MainLayout: React.FC<Props> = ({ children }) => {
+const MainLayout: React.FC<PropsWithChildren> = ({ children }) => {
   const { windowWidth } = useAppSelector(state => state.ui);
 
   return (
@@ -27,6 +24,7 @@ const MainLayout: React.FC<Props> = ({ children }) => {
 
         <div className='w-full h-full relative overflow-auto py-4'>
           {children}
+          <Outlet />
         </div>
       </div>
     </div>

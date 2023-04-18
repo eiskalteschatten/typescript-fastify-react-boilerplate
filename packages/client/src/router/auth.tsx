@@ -1,17 +1,26 @@
 import React from 'react';
 import { Navigate, createBrowserRouter } from 'react-router-dom';
 
-const Login = React.lazy(() => import('../pages/Login'));
-const Register = React.lazy(() => import('../pages/Register'));
+import Loadable from '@/lib/Loadable';
+import LoginRegistration from '@/layouts/LoginRegistration';
+
+const Login = Loadable(React.lazy(() => import('../pages/Login')));
+const Register = Loadable(React.lazy(() => import('../pages/Register')));
 
 const router = createBrowserRouter([
   {
-    path: '/login',
-    element: (<Login />),
-  },
-  {
-    path: '/register',
-    element: (<Register />),
+    path: '/',
+    element: (<LoginRegistration />),
+    children: [
+      {
+        path: 'login',
+        element: (<Login />),
+      },
+      {
+        path: 'register',
+        element: (<Register />),
+      },
+    ],
   },
   {
     path: '*',

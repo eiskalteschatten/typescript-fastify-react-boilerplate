@@ -35,13 +35,10 @@ const App: React.FC = () => {
 
   return (
     <GlobalErrorBoundary>
-      <FullPageSuspense>
-        <PageLoader />
-        <RouterProvider router={userIsLoggedin ? router : authRouter} />
-        <GlobalInfo />
-        <GlobalError />
-        <GlobalLoader />
-      </FullPageSuspense>
+      <RouterProvider router={userIsLoggedin ? router : authRouter} />
+      <GlobalInfo />
+      <GlobalError />
+      <GlobalLoader />
     </GlobalErrorBoundary>
   );
 };

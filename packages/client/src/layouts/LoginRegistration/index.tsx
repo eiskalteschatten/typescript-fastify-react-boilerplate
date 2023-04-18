@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link, useMatch } from 'react-router-dom';
+import React, { PropsWithChildren } from 'react';
+import { Link, Outlet, useMatch } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
 
@@ -11,11 +11,7 @@ import styles from './LoginRegistration.module.scss';
 
 const logoSize = 100;
 
-interface Props {
-  children: React.ReactNode;
-}
-
-const LoginRegistration: React.FC<Props> = ({ children }) => {
+const LoginRegistration: React.FC<PropsWithChildren> = ({ children }) => {
   const { t } = useTranslation(['account']);
   const { accountError } = useAppSelector(state => state.account);
   const loginMatch = useMatch({ path: '/login', end: true });
@@ -42,6 +38,7 @@ const LoginRegistration: React.FC<Props> = ({ children }) => {
         {accountError && (<div className={styles.error}>{accountError}</div>)}
 
         {children}
+        <Outlet />
       </Card>
     </div>
   );

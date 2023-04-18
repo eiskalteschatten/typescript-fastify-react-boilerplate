@@ -9,7 +9,6 @@ import usePageTitle from '@/lib/usePageTitle';
 import Form from '@/components/Form';
 import Input from '@/components/Input';
 import Button from '@/components/Button';
-import LoginRegistration from '@/layouts/LoginRegistration';
 
 const Login: React.FC = () => {
   const { t } = useTranslation(['account']);
@@ -22,29 +21,27 @@ const Login: React.FC = () => {
   usePageTitle(t('account:login'));
 
   return (
-    <LoginRegistration>
-      <Form onSubmit={handleSubmit(onSubmit)}>
-        <Input
-          type='email'
-          label={t('account:emailAddress')}
-          required
-          fullWidth
-          {...register('email', { required: true })}
-        />
+    <Form onSubmit={handleSubmit(onSubmit)}>
+      <Input
+        type='email'
+        label={t('account:emailAddress')}
+        required
+        fullWidth
+        {...register('email', { required: true })}
+      />
 
-        <Input
-          type='password'
-          label={t('account:password')}
-          required
-          fullWidth
-          {...register('password', { required: true })}
-        />
+      <Input
+        type='password'
+        label={t('account:password')}
+        required
+        fullWidth
+        {...register('password', { required: true })}
+      />
 
-        <div className='text-center'>
-          <Button type='submit' primary showLoader={isLoading}>{t('account:logIn')}</Button>
-        </div>
-      </Form>
-    </LoginRegistration>
+      <div className='text-center'>
+        <Button type='submit' primary showLoader={isLoading}>{t('account:logIn')}</Button>
+      </div>
+    </Form>
   );
 };
 
