@@ -1,11 +1,11 @@
 import React from 'react';
 import { Navigate, createBrowserRouter } from 'react-router-dom';
 
-import Loadable from '@/lib/Loadable';
+import loadable from '@/lib/loadable';
 import LoginRegistration from '@/layouts/LoginRegistration';
 
-const Login = Loadable(React.lazy(() => import('../pages/Login')));
-const Register = Loadable(React.lazy(() => import('../pages/Register')));
+const Login = loadable(React.lazy(() => import('../pages/Login')));
+const Register = loadable(React.lazy(() => import('../pages/Register')));
 
 const router = createBrowserRouter([
   {

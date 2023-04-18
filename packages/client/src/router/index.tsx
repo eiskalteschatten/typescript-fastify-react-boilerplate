@@ -1,12 +1,12 @@
 import React from 'react';
 import { Navigate, createBrowserRouter } from 'react-router-dom';
 
-import Loadable from '@/lib/Loadable';
+import loadable from '@/lib/loadable';
 import MainLayout from '@/layouts/Main';
 
-const Dashboard = Loadable(React.lazy(() => import('../pages/Dashboard')));
-const AccountSettings = Loadable(React.lazy(() => import('../pages/AccountSettings')));
-const NotFound = Loadable(React.lazy(() => import('../pages/NotFound')));
+const Dashboard = loadable(React.lazy(() => import('../pages/Dashboard')));
+const AccountSettings = loadable(React.lazy(() => import('../pages/AccountSettings')));
+const NotFound = loadable(React.lazy(() => import('../pages/NotFound')));
 
 const router = createBrowserRouter([
   {
