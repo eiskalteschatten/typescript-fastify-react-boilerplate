@@ -1,8 +1,6 @@
 import React from 'react';
 import { Navigate, createBrowserRouter } from 'react-router-dom';
 
-import FullPageSuspense from '@/components/FullPageSuspense';
-
 const Dashboard = React.lazy(() => import('../pages/Dashboard'));
 const AccountSettings = React.lazy(() => import('../pages/AccountSettings'));
 const NotFound = React.lazy(() => import('../pages/NotFound'));
