@@ -1,6 +1,8 @@
+import React from 'react';
+
 import FullPageSuspense from '@/components/FullPageSuspense';
 
-export const Loadable = (Component: any) => (props: any) => (
+export const Loadable = (Component: React.LazyExoticComponent<React.FC>) => (props: any) => (
   <FullPageSuspense>
     <Component {...props} />
   </FullPageSuspense>
