@@ -5,10 +5,11 @@ import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { setWindowWidth, setPrefersDarkMode } from '@/store/entities/ui';
 
 import GlobalErrorBoundary from '@/components/GlobalErrorBoundary';
+import FullPageSuspense from '@/components/FullPageSuspense';
+import PageLoader from '@/components/PageLoader';
 import GlobalInfo from '@/components/GlobalInfo';
 import GlobalError from '@/components/GlobalError';
 import GlobalLoader from '@/components/GlobalLoader';
-import PageLoader from '@/components/PageLoader';
 import router from '@/router';
 import authRouter from '@/router/auth';
 
@@ -34,11 +35,13 @@ const App: React.FC = () => {
 
   return (
     <GlobalErrorBoundary>
-      <PageLoader />
-      <RouterProvider router={userIsLoggedin ? router : authRouter} />
-      <GlobalInfo />
-      <GlobalError />
-      <GlobalLoader />
+      <FullPageSuspense>
+        <PageLoader />
+        <RouterProvider router={userIsLoggedin ? router : authRouter} />
+        <GlobalInfo />
+        <GlobalError />
+        <GlobalLoader />
+      </FullPageSuspense>
     </GlobalErrorBoundary>
   );
 };

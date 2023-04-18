@@ -9,19 +9,11 @@ const Register = React.lazy(() => import('../pages/Register'));
 const router = createBrowserRouter([
   {
     path: '/login',
-    element: (
-      <FullPageSuspense>
-        <Login />
-      </FullPageSuspense>
-    ),
+    element: (<Login />),
   },
   {
     path: '/register',
-    element: (
-      <FullPageSuspense>
-        <Register />
-      </FullPageSuspense>
-    ),
+    element: (<Register />),
   },
   {
     path: '*',

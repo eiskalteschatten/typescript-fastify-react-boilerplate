@@ -10,11 +10,7 @@ const NotFound = React.lazy(() => import('../pages/NotFound'));
 const router = createBrowserRouter([
   {
     path: '/',
-    element: (
-      <FullPageSuspense>
-        <Dashboard />
-      </FullPageSuspense>
-    ),
+    element: (<Dashboard />),
     // loader: rootLoader,
     // children: [
     //   {
@@ -26,11 +22,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/account',
-    element: (
-      <FullPageSuspense>
-        <AccountSettings />
-      </FullPageSuspense>
-    ),
+    element: (<AccountSettings />),
   },
   {
     path: '/login',
@@ -42,11 +34,7 @@ const router = createBrowserRouter([
   },
   {
     path: '*',
-    element: (
-      <FullPageSuspense>
-        <NotFound />
-      </FullPageSuspense>
-    ),
+    element: (<NotFound />),
   },
 ]);
 
