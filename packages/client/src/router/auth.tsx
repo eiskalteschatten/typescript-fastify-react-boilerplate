@@ -13,6 +13,10 @@ const router = createBrowserRouter([
     element: (<LoginRegistration />),
     children: [
       {
+        path: '',
+        element: <Navigate replace to='/login' />,
+      },
+      {
         path: 'login',
         element: (<Login />),
       },
