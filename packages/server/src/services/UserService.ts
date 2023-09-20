@@ -169,8 +169,8 @@ export default class UserService {
     return token;
   }
 
-  static async saveJwtToRedis(id: number, type: TokenType, jwt: string): Promise<void> {
-    await redisClient.set(`${id}${tokenSuffixes[type]}`, jwt);
+  static async saveJwtToRedis(id: number, type: TokenType, token: string): Promise<void> {
+    await redisClient.set(`${id}${tokenSuffixes[type]}`, token);
   }
 
   static async userTokenIsValid(payload: JwtPayload, type: TokenType = 'access'): Promise<User | undefined> {
